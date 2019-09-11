@@ -2,13 +2,13 @@
 
 Welcome to our Hands-On Training on the integration of R and Python into Tableau!
 
-This sidebar contains some hopefully helpful tipps and code snippets for you in addition to what we show you on stage and also to the stuff that's contained in your workbooks. Feel free to copy & paste away!
+This sidebar contains some helpful tips and code snippets for you. It will also contain what we show you on stage and the stuff that's in your workbooks. Feel free to copy & paste away!
 
 Have fun, geek out, and don't hesitate to ask us for help when needed!
 
-Love 
 
-// Konstantin & Lennart
+
+// Madeline & Josh
 
 ===
 
@@ -18,20 +18,20 @@ Love
 
 In this part you will learn:
 1. How to do a basic t-test.
-2. That Trekkies are superior in R and Python to Star Wars fans.
+2. How to make a more educated bet on a horse race derby.
 
 ![p-values...](https://imgs.xkcd.com/comics/p_values.png)
 
 Here's your first tasks for this session:
 
 1. Please start by opening this file: `R ... You Ready for Python - Starter.twbx`
-2. Move to the tab **Entry** and fill out the survey. If you are done hit the button to move on.
-3. Login to PostgreSQL with username `questionnaire` and password `tce2019berlin`
+2. If a pop-up window appears with some confusing looking code, press enter.
+3. 
 
->[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy! 
+>[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy! need to add gif here
 !IMAGE[Choose wisely!](choose-r-or-python.png)
 
-4. Click the R or Python button on the dashboard **Entered** to proceed. 
+4. Click on the R: Results Text or the Python: Results Text sheet. You will start the exercise here. 
 
 You are now at the results page. The t-test should be evaluated here. To get started on the first exercise you can move to the sheet **R: Result Text** if you are an R user or to **Python: Result Text** if you are a Pythonista.
 
@@ -39,7 +39,7 @@ You are now at the results page. The t-test should be evaluated here. To get sta
 
 ### Exercise
 
-To put it into statistical terms: Your exercise is to find out if the difference in median values for the R or Python proficiency of the attendees of this hands-on training can be explained by them liking Star Trek or Star Wars more.
+To put it into statistical terms: Your exercise is to find out if the difference in mean values for the winners and losers of the horses that raced at Happy Valley Racecourse in Hong Kong can be explained by their declared weight, or the total weight of the horse and the jockey.
 
 In order to find that out, we need to do a t-test and get the p-value from the result.
 
@@ -67,33 +67,33 @@ SCRIPT_REAL(
 # do the t-test here:
 t <- t.test( xxx ~ xxx )
 # return the p value here:
-return(t$xxx )
+return(t$xxx)
 ",
-AVG([Value]), 
-ATTR([Category]))
+AVG([Actual Weight]), 
+ATTR([Won]))
 ```
 
 ```Python
 SCRIPT_REAL(
 "
-# Load packages
-import pandas
+#load packages
+import pandas as pd
+import numpy as np
 from scipy import stats
 
-# create 2 dataframes for both categories
-d = {'value': _arg1, 'category': _arg2}
-df = pandas.DataFrame(data=d)
-startrek = df.loc[df['category']=='Star Trek']
-starwars = df.loc[df['category']=='Star Wars']
+d = {'actual_weight': _arg1, 'won': _arg2}
+df = pd.DataFrame(data=d)
+winners = df.loc[df['won'] == 1]
+losers = df.loc[df['won'] == 0]
 
-# do the t-test here:
-t = stats.ttest_ind(xxx['xxx'],xxx['xxx'])
+t = stats.ttest_ind(xxx['xxx'], xxx['xxx'])
 
-# return the p-value here
-return(t[xxx])
+return t[xxx]
+
 ",
-AVG([Value]), 
-ATTR([Category]))
+AVG([Actual Weight]), ATTR([Won])
+
+)
 ```
 
 Proceed for the full solution.
@@ -109,32 +109,31 @@ t <- t.test( .arg1 ~ .arg2 )
 # return the p value here:
 return(t$p.value)
 ",
-AVG([Value]), 
-ATTR([Category]))
+AVG([Actual Weight]), 
+ATTR([Won]))
 ```
 
 ```Python
 SCRIPT_REAL(
 "
-
-# Load packages
-import pandas
+#load packages
+import pandas as pd
+import numpy as np
 from scipy import stats
 
-# create 2 dataframes for both categories
-d = {'value': _arg1, 'category': _arg2}
-df = pandas.DataFrame(data=d)
-startrek = df.loc[df['category']=='Star Trek']
-starwars = df.loc[df['category']=='Star Wars']
+d = {'actual_weight': _arg1, 'won': _arg2}
+df = pd.DataFrame(data=d)
+winners = df.loc[df['won'] == 1]
+losers = df.loc[df['won'] == 0]
 
-# do the t-test here:
-t = stats.ttest_ind(startrek['value'],starwars['value'])
+t = stats.ttest_ind(winners['actual_weight'], losers['actual_weight'])
 
-# return the p-value here
-return(t[1])
+return t[1]
+
 ",
-AVG([Value]), 
-ATTR([Category]))
+AVG([Actual Weight]), ATTR([Won])
+
+)
 ```
 
 The text you see is generated in the fields `[R: p value evaluation]` and `[Python: p value evaluation]` - as we said, you don't need to change these.
@@ -408,7 +407,7 @@ Note that you can't just drag it onto the Color shelf as a dimension, as this wo
 In this part you will get to know:
 1. How to do a sentiment analysis and display the results.
 2. How to use parameters to change the output of our code.
-3. Which Top 1 Chartsongs from the UK and US have the most positive and negative sentiment.
+3. Which Top 1 Chartsongs from the UK and US have the most positive, negative, or overall sentiment.
 
 Move on to the worksheet **R: Lyrics Sentiment** or **Python: Lyrics Sentiment**.
 
@@ -420,11 +419,11 @@ Move on to the worksheet **R: Lyrics Sentiment** or **Python: Lyrics Sentiment**
 
 ### Exercise
 
-In this exercise you need to adjust the measure `[R: Polarity]` or `[Python: Polarity]` to calculate the polarity of all lyrics in one RServe or TabPy call. The result should either be the positive or negative sentiment score, depending on the parameter `[R: Polarity Chooser]` or `[Python: Polarity Chooser]`.
+In this exercise you need to adjust the measure `[R: Polarity]` or `[Python: Polarity]` to calculate the polarity of all lyrics in one RServe or TabPy call. The result should either be the positive, negative, or compound sentiment score, depending on the parameter `[R: Polarity Chooser]` or `[Python: Polarity Chooser]`.
 
 >[!note]#### Exercise:
 1. Use the measure `[R: Polarity]` or `[Python: Polarity]` to calculate a sentiment score / polarity.
-2. Make use of the parameters `[R: Polarity Chooser]` or `[Python: Polarity Chooser]` to get only one column back, either the positive or negative sentiment score.
+2. Make use of the parameters `[R: Polarity Chooser]` or `[Python: Polarity Chooser]` to get only one column back, either the positive, negative, or compound sentiment score.
 
 The outcome should look like this:
 !IMAGE[result-python-sentiment.png](result-python-sentiment.png)
@@ -525,16 +524,121 @@ MIN([Lyrics]),
 [Python: Polarity Chooser])
 ```
 
-For R the solution is pretty straight forward since the function itself accepts a vector. To determine the return value, the text of a parameter can be used. For Python the implementation looks a little bit different, because the function we are using does not take a list, but an atomic string value. To accomodate that, we need a `for` loop because otherwise the Python code needs to be evaluated for each and every song, which takes long because of transfer and package load times.
+The R solution is pretty straight forward since the function itself accepts a vector. To determine the return value, the text of a parameter can be used. For Python the implementation looks a little bit different, because the function we are using does not take a list, but an atomic string value. To accomodate that, we need a `for` loop. Otherwise the Python code would need to be evaluated for each and every song, which takes longer than the `for` loop because of transfer and package load times.
 
 ===
+
+### Exercise
+
+In this exercise, we will move to Tableau Prep to conduct an exercise using our new external services feature, recently released in 2019.3! We will conduct sentiment analysis on reviews of buffets in Vegas to determine their compound score.
+
+Move to the Tableau Prep Shortcut on the Desktop and open the flow titled **yelp_sentiment_flow_starter.tflx**.
+
+>[!note]#### Exercise:
+1. Create a dummy variable (null column) for the script to populate once it runs.
+2. Edit the .py file or .R file on the desktop to write a function that takes a dataframe as its input and outputs a sentiment score into the dummy variable column.
+3. Save the file!
+4. Add a 'Script' step and connect to the correct server, then add the function name to the 'function name' field.
+5. Run the flow to see the null column populate!
+6. Run the output to download a new, cleaned copy of the dataset. 
+
+The outcome should look like this:
+
+==
+
+The following lines of code should help you out. 
+
+```R
+library(SentimentAnalysis)
+library(SnowballC)
+library(Rserve)
+
+classify_sentiment <- function(data_frame) {
+  data_frame$sentiment = NULL;
+  compound_sentiments <- vector();
+  for (i in 1:nrow(data_frame)) {
+    string_text <- data_frame[i, 'xxx'];
+    sentiment_vector <- analyzeSentiment(xxx);
+    compound <- sentiment_vector[, 'xxx'];
+    data_frame$sentiment[i] = compound;
+    
+  }
+  
+  return(data_frame);
+}
+```
+
+```Python
+
+#import packages
+import pandas as pd
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+
+#function to classify sentiment
+def classify_sentiment(data_frame):
+    #for loop to go through each line of text in dataframe
+    sentiment_list = []
+    for i in range(0, data_frame.shape[0]):
+        #run polarity scoring
+        score = SentimentIntensityAnalyzer().polarity_scores(data_frame['xxx'].iloc[i])
+        #append desired type of sentiment score to sentiment_list
+        sentiment_list.append(score['xxx'])
+
+    #reassign to sentiment column
+    data_frame['xxx'] = xxx
+    #return data frame
+    return(data_frame)
+```
+
+==
+
+Proceed for the full solution
+
+```R
+
+library(SentimentAnalysis)
+library(SnowballC)
+library(Rserve)
+
+classify_sentiment <- function(data_frame) {
+  data_frame$sentiment = NULL;
+  compound_sentiments <- vector()
+  for (i in 1:nrow(data_frame)) {
+    string_text <- data_frame[i, 'text']
+    sentiment_vector <- analyzeSentiment(string_text)
+    compound <- sentiment_vector[, 'SentimentQDAP']
+    data_frame$sentiment[i] = compound
+    
+  }
+  return(data_frame)
+}
+```
+
+```Python
+#import packages
+import pandas as pd
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+
+def classify_sentiment(data_frame):
+    #for loop to go through each line of text in dataframe
+    sentiment_list = []
+    for i in range(0, data_frame.shape[0]):
+        #run polarity scoring
+        score = SentimentIntensityAnalyzer().polarity_scores(data_frame['text'].iloc[i])
+        #append to sentiment_list
+        sentiment_list.append(score['compound'])
+
+    #add back to dataframe
+    data_frame['sentiment'] = sentiment_list
+    #return data frame
+    return(data_frame)
+    
+```
 
 ## Done!
 
 You're work here is done! Now it's time to sit back, relax, and take in the other nuggets of information we have prepared for you.
 
-Live long and prosper! See you at TC19 in Las Vegas or next year at TCE20!
+Awesome job data rockstars! See you at next year at TC2020!
 
-Love 
-
-// Konstantin & Lennart
+//Madeline and Josh
