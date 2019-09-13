@@ -22,7 +22,7 @@ In this part you will learn:
 
 ![p-values...](https://imgs.xkcd.com/comics/p_values.png)
 
-Here's your first tasks for this session:
+Your first tasks for this session:
 
 1. Please start by opening this file: `R ... You Ready for Python - Starter.twbx`
 2. If a pop-up window appears with some confusing looking code, press enter.
@@ -61,6 +61,7 @@ The following pages contains help on various levels. If you need a little jumpst
 
 The following code lines could help you out.
 
+### R
 ```R
 SCRIPT_REAL(
 "
@@ -69,10 +70,11 @@ t <- t.test( xxx ~ xxx )
 # return the p value here:
 return(t$xxx)
 ",
-AVG([Actual Weight]), 
+AVG([Declared Weight]), 
 ATTR([Won]))
 ```
 
+### Python
 ```Python
 SCRIPT_REAL(
 "
@@ -91,16 +93,17 @@ t = stats.ttest_ind(xxx['xxx'], xxx['xxx'])
 return t[xxx]
 
 ",
-AVG([Actual Weight]), ATTR([Won])
+AVG([Declared Weight]), ATTR([Won])
 
 )
 ```
 
-Proceed for the full solution.
+### Proceed for the full solution.
 ===
 
 This is how to calculate the p-value:
 
+### R
 ```R
 SCRIPT_REAL(
 "
@@ -109,10 +112,10 @@ t <- t.test( .arg1 ~ .arg2 )
 # return the p value here:
 return(t$p.value)
 ",
-AVG([Actual Weight]), 
+AVG([Declared Weight]), 
 ATTR([Won]))
 ```
-
+### Python
 ```Python
 SCRIPT_REAL(
 "
@@ -121,24 +124,24 @@ import pandas as pd
 import numpy as np
 from scipy import stats
 
-d = {'actual_weight': _arg1, 'won': _arg2}
+d = {'declared_weight': _arg1, 'won': _arg2}
 df = pd.DataFrame(data=d)
 winners = df.loc[df['won'] == 1]
 losers = df.loc[df['won'] == 0]
 
-t = stats.ttest_ind(winners['actual_weight'], losers['actual_weight'])
+t = stats.ttest_ind(winners['declared_weight'], losers['declared_weight'])
 
 return t[1]
 
 ",
-AVG([Actual Weight]), ATTR([Won])
+AVG([Declared Weight]), ATTR([Won])
 
 )
 ```
 
 The text you see is generated in the fields `[R: p value evaluation]` and `[Python: p value evaluation]` - as we said, you don't need to change these.
 
-Head back to your repective dashboard **R: Result** or **Python: Result** to see the whole picture and find out you really are the better R or Python coder just by liking Star Trek or Star Wars more!
+Head back to your respective dashboard **R: Result** or **Python: Result** to see the whole picture and find out if you can use declared weight to bet on horses at Happy Valley!
 
 ===
 
@@ -164,6 +167,7 @@ The data was taken from the [OpenFlights database](https://openflights.org/data.
 
 This is how to create the network graph:
 
+### R
 ```R
 SCRIPT_STR("
 library(igraph)
@@ -197,6 +201,7 @@ MAX([Path Order]),
 MAX([Airport]))
 ```
 
+### Python
 ```Python
 SCRIPT_STR("
 import pygraphviz as pgv
@@ -242,14 +247,14 @@ MAX([Path Order]),
 MAX([Person]))
 ```
 
-So we tricked both R and Python to return multiple pieces of information in the one and only vector/list we can send back from the External Services into Tableau. 
+We just tricked both R and Python to return multiple pieces of information in the one and only vector/list we can send back from the External Services into Tableau. 
 
 As a next step we need to decompose this string into the three bits of information encoded therein:
 - X position, 
 - Y position, 
 - and betweenness centrality (R) or degree (Python).
 
->[!knowledge] The reason we're calculating the (rather boring) overall network degree in Python instead of each node's way more interesting betweenness centrality is that the excellent `igraph` library we're using in the R code requires Python 3 to run, while we decided to set this lab up with Python 2.7. As a result we're now bound to the inferior (in terms of functionality and performance) `pygraphviz` library, which doesn't allow for the calculation of centrality measures.
+>[!knowledge] The reason we're calculating the (rather boring) overall network degree in Python instead of each node's betweenness centrality is that the excellent `igraph` library we're using in the R code requires Python 3 to run, while we decided to set this lab up with Python 2.7. As a result we're now bound to the inferior (in terms of functionality and performance) `pygraphviz` library, which doesn't allow for the calculation of centrality measures.
 
 This is how to decompose and extract `X`, `Y`, and the third measure:
 ```X
@@ -267,9 +272,9 @@ FLOAT(RIGHT([R: Graph], LEN([R: Graph]) - FIND([R: Graph], '~', FIND([R: Graph],
 
 ===
 
-### Exercise: Escort Relationships
+### Exercise: Buyer/Seller/Ebay(?) Relationships
 
-For your exercise we're looking at another relationship network: that between customers ("buyers") and employees at an escort service. Move on to the worksheet **R: Network Analysis (Escort)** or **Python: Network Analysis (Escort)**.
+For your exercise we're looking at another relationship network: that between customers ("buyers") and sellers on ebay. Move on to the worksheet **R: Network Analysis (Escort)** or **Python: Network Analysis (Escort)**.
 
 ![Romance!](https://raw.githubusercontent.com/kgreger/tce19-r-you-ready-for-python/master/img/romantic-date.jpg)
 
@@ -279,7 +284,7 @@ The data was taken from the [Koblenz Network Collection (KONECT) repository](htt
 
 >[!note]#### Exercise:
 1. Give the end user of your network graph the option to choose between various types of network graph layouts. We already created parameters (one for R, one for Python) to allow for the selection. See if you can figure out how to embed this selection into the actual R or Python code.
-2. As it's hard to distinguish which node is a buyer and which are the escorts, create a new dimension `[Type]` that will allow the end user to visually distinguish the two in the network graph.
+2. As it's hard to distinguish which node is a buyer and which are the sellers, create a new dimension `[Type]` that will allow the end user to visually distinguish the two in the network graph.
 
 >[!hint] You can `print()` out any statement from your R or Python code to the console you have open. Use this to test and troubleshoot your code!
 
@@ -294,8 +299,9 @@ The following pages contains help on various levels. If you need a little jumpst
 
 ===
 
-### Solution: Escort Relationships
+### Solution: Buyer/Seller/Ebay Relationships
 
+### R
 ```R
 SCRIPT_STR("
 # load packages
@@ -335,6 +341,7 @@ MAX([Path Order]),
 MAX([Person]))
 ```
 
+### Python
 ```Python
 SCRIPT_STR("
 # load packages
@@ -408,6 +415,7 @@ In this part you will get to know:
 1. How to do a sentiment analysis and display the results.
 2. How to use parameters to change the output of our code.
 3. Which Top 1 Chartsongs from the UK and US have the most positive, negative, or overall sentiment.
+4. How to use Tableau Prep Builder to conduct sentiment analysis with R and Python.
 
 Move on to the worksheet **R: Lyrics Sentiment** or **Python: Lyrics Sentiment**.
 
@@ -416,7 +424,6 @@ Move on to the worksheet **R: Lyrics Sentiment** or **Python: Lyrics Sentiment**
 >[!knowledge] The data contains the songs and lyrics of the Top #1 Songs of the UK and US charts of the past 70 years. If you want to read up where the data is from and have a look at some other paths of analysis for it, please visit [this Tableau Public Story](https://public.tableau.com/profile/jonas5035#!/vizhome/Spottify-AnalytischeAnwendungen/MusicAnalysis).
 
 ===
-
 ### Exercise
 
 In this exercise you need to adjust the measure `[R: Polarity]` or `[Python: Polarity]` to calculate the polarity of all lyrics in one RServe or TabPy call. The result should either be the positive, negative, or compound sentiment score, depending on the parameter `[R: Polarity Chooser]` or `[Python: Polarity Chooser]`.
@@ -442,9 +449,10 @@ The following pages contains help on various levels. If you need a little jumpst
 >[!alert] There will be more spoilers if you proceed!
 
 ===
-
+### Starter Solution
 The following code lines could help you to out.
 
+### R
 ```R
 SCRIPT_REAL("
 # load in required packages
@@ -458,7 +466,7 @@ return(polarity[,xxx[x]])
 
 ",MIN([Lyrics]), [R: Polarity Chooser])
 ```
-
+### Python
 ```Python
 SCRIPT_REAL("
 # load in packages
@@ -481,10 +489,14 @@ return scores
 ```
 
 >[!alert] Proceed for full solution.
+
 ===
+
+## Proceed for Full Solution
 
 This is how to analyze the song lyrics' sentiment:
 
+### R
 ```R
 SCRIPT_REAL("
 # load in required packages
@@ -500,7 +512,7 @@ return(polarity[,.arg2[1]])
 MIN([Lyrics]), 
 [R: Polarity Chooser])
 ```
-
+### Python
 ```Python
 SCRIPT_REAL("
 # load in packages
@@ -527,14 +539,12 @@ MIN([Lyrics]),
 The R solution is pretty straight forward since the function itself accepts a vector. To determine the return value, the text of a parameter can be used. For Python the implementation looks a little bit different, because the function we are using does not take a list, but an atomic string value. To accomodate that, we need a `for` loop. Otherwise the Python code would need to be evaluated for each and every song, which takes longer than the `for` loop because of transfer and package load times.
 
 ===
-
 ### Exercise
 
 In this exercise, we will move to Tableau Prep to conduct an exercise using our new external services feature, recently released in 2019.3! We will conduct sentiment analysis on reviews of buffets in Vegas to determine their compound score.
 
 Move to the Tableau Prep Shortcut on the Desktop and open the flow titled **yelp_sentiment_flow_starter.tflx**.
 
->[!note]#### Exercise:
 1. Create a dummy variable (null column) for the script to populate once it runs.
 2. Edit the .py file or .R file on the desktop to write a function that takes a dataframe as its input and outputs a sentiment score into the dummy variable column.
 3. Save the file!
@@ -548,6 +558,7 @@ The outcome should look like this:
 
 The following lines of code should help you out. 
 
+### R
 ```R
 library(SentimentAnalysis)
 library(SnowballC)
@@ -568,6 +579,7 @@ classify_sentiment <- function(data_frame) {
 }
 ```
 
+### Python
 ```Python
 
 #import packages
@@ -590,10 +602,10 @@ def classify_sentiment(data_frame):
     return(data_frame)
 ```
 
-==
+### Proceed for the full solution.
+===
 
-Proceed for the full solution
-
+### R
 ```R
 
 library(SentimentAnalysis)
@@ -614,6 +626,7 @@ classify_sentiment <- function(data_frame) {
 }
 ```
 
+### Python
 ```Python
 #import packages
 import pandas as pd
