@@ -155,15 +155,15 @@ In this part we will show you:
 
 First we will build a visualization of the network of German airports. Move on to the worksheet **R: Network Analysis (Flights)** or **Python: Network Analysis (Flights)**.
 
-![Berlin Tegel Airport](https://raw.githubusercontent.com/kgreger/tce19-r-you-ready-for-python/master/img/berlin-tegel.jpg)
+<a data-flickr-embed="true"  href="https://www.flickr.com/photos/kenlund/15517242227/" title="McCarran International Airport, Las Vegas, Nevada"><img src="https://live.staticflickr.com/3939/15517242227_48c9d4c817_k.jpg" width="1024" alt="McCarran International Airport, Las Vegas, Nevada"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
->[!knowledge] Note that the data is already prepared in a usable format. For that we require one file with the node information (here the airports) and one file with the edge information (here how many connection exist between two airports). The route data needs to be duplicated using a self-join and amended a column `[Path Order]`, then the airports need to be joined to the duplicated routes once for the `[To]` and `[From]` locations, respectively. Have a look at the data source tab for the `2) OpenFlights (Germany)` data source for more details.
+>[!knowledge] Note that the data is already prepared in a usable format. For that we require one file with edge information (here how many connection exist between two airports). The file also contains the number of flights that have occurred for that Origin to Destination route. For Tableau to know how to draw the path the route will take, the route data needs to be duplicated using a self-join and amended a column `[Path Order]`.  Have a look at the data source tab for the `2) Flights All Summarized` data source for more details.
 
-The data was taken from the [OpenFlights database](https://openflights.org/data.html).
+The data was taken from an internal reference datasource at Tableau, but the data seems consistent with flight data shown on [Stat Computing](http://stat-computing.org/dataexpo/2009/the-data.html).
 
 ===
 
-### Example: German Airport Network
+### Example: Airport Network Originating in Nevada
 
 This is how to create the network graph:
 
