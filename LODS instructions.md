@@ -155,15 +155,15 @@ In this part we will show you:
 
 First we will build a visualization of the network of German airports. Move on to the worksheet **R: Network Analysis (Flights)** or **Python: Network Analysis (Flights)**.
 
-<a data-flickr-embed="true"  href="https://www.flickr.com/photos/kenlund/15517242227/" title="McCarran International Airport, Las Vegas, Nevada"><img src="https://live.staticflickr.com/3939/15517242227_48c9d4c817_k.jpg" width="1024" alt="McCarran International Airport, Las Vegas, Nevada"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<a data-flickr-embed="true"  href="https://www.flickr.com/photos/kenlund/15517242227/" title="McCarran International Airport, Las Vegas, Nevada"><img src="https://live.staticflickr.com/3939/15517242227_48c9d4c817_k.jpg" width="1024" alt="McCarran International Airport, Las Vegas, Nevada"></a>
 
->[!knowledge] Note that the data is already prepared in a usable format. For that we require one file with edge information (here how many connection exist between two airports). The file also contains the number of flights that have occurred for that Origin to Destination route. For Tableau to know how to draw the path the route will take, the route data needs to be duplicated using a self-join and amended a column `[Path Order]`.  Have a look at the data source tab for the `2) Flights All Summarized` data source for more details.
+>[!knowledge] Note that the data is already prepared in a usable format. For that we require one file with edge information (here how many connections exist between two airports). The file also contains the number of flights that have occurred for that Origin to Destination route. For Tableau to know how to draw the path the route will take, the route data needs to be duplicated using a self-join and amended a column `[Path Order]`.  Have a look at the data source tab for the `2) Flights All Summarized` data source for more details.
 
 The data was taken from an internal reference datasource at Tableau, but the data seems consistent with flight data shown on [Stat Computing](http://stat-computing.org/dataexpo/2009/the-data.html).
 
 ===
 
-### Example: Airport Network Originating in Nevada
+### Example: Airport Network Originating from LAS
 
 This is how to create the network graph:
 
@@ -203,49 +203,61 @@ MAX([Airport]))
 
 ### Python
 ```Python
-SCRIPT_STR("
+# load packages
 import pygraphviz as pgv
 import pandas as pd
 import re
 
+# build data models
 df=pd.DataFrame(data={
-	'buyer': _arg1, 
-	'escort': _arg2, 
-	'meetings': _arg3, 
+	'from': _arg1, 
+	'to': _arg2, 
+	'weight': _arg3, 
 	'pathOrder': _arg4, 
-	'person': _arg5})
+	'airport': _arg5})
+
+# Keep only the Origin data for network analysis
 df=df[df.pathOrder==1]
 
-persons=pd.DataFrame(data={
-	'person': _arg5})
+airports=pd.DataFrame(data={'airport': _arg5})
 
-g=pgv.AGraph(strict=False, directed=False)
+# initialize graph
+g=pgv.AGraph(strict=False, directed=False, overlap=False, splines=True)
 
+# build graph
 for index, row in df.iterrows():
-	g.add_edge(row['buyer'], row['escort'])
+	g.add_edge(row['from'], row['to'])
 
+# assign layout
 g.layout(prog='neato')
 
-coords=pd.DataFrame(columns=['person', 'x', 'y', 'degree'])
+# extract graph node coordinates
+coords=pd.DataFrame(columns=['airport', 'x', 'y', 'degree'])
 
 for n in g.nodes():
+	print(str(n) + ': ' + str(g.get_node(n).attr['pos']) )
 	new=pd.Series(data={
-		'person': str(n), 
+		'airport': str(n), 
 		'x': re.search(r'(.*),(.*)', str(g.get_node(n).attr['pos'])).group(1), 
 		'y': re.search(r'(.*),(.*)', str(g.get_node(n).attr['pos'])).group(2), 
 		'degree': str(g.degree()[0])})
 	coords=coords.append(new, ignore_index=True)
 
-ret=persons.set_index('person').join(coords.set_index('person'), on='person', sort=False)
+# build return string
+ret=airports.set_index('airport').join(coords.set_index('airport'), on='airport', sort=False)
+
+# build return string
 ret['ret'] = ret[['x', 'y', 'degree']].apply(lambda x: '~'.join(x), axis=1)
+
 return(ret['ret'].tolist())
 ", 
-MAX([Buyer]), 
-MAX([Escort]), 
-SUM([Meetings]), 
+MAX([Origin]), 
+MAX([Dest]), 
+SUM([Flights]), 
 MAX([Path Order]), 
-MAX([Person]))
-```
+MAX([Airport]),
+MAX(FALSE)
+)```
 
 We just tricked both R and Python to return multiple pieces of information in the one and only vector/list we can send back from the External Services into Tableau. 
 
