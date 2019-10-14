@@ -1,3 +1,4 @@
+
 # R ... you Ready for Python?
 
 Welcome to our Hands-On Training on the integration of R and Python into Tableau!
@@ -28,7 +29,7 @@ Your first tasks for this session:
 2. If a pop-up window appears with some confusing looking code, press enter.
 3. 
 
->[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy! need to add gif here
+>[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy! **need to add gif here**
 !IMAGE[Choose wisely!](choose-r-or-python.png)
 
 4. Click on the R: Results Text or the Python: Results Text sheet. You will start the exercise here. 
@@ -153,13 +154,13 @@ In this part we will show you:
 1. How to generate fancy looking network graphs in Tableau.
 2. How to return more than one value from External Services (R or Python) into Tableau.
 
-First we will build a visualization of the network of German airports. Move on to the worksheet **R: Network Analysis (Flights)** or **Python: Network Analysis (Flights)**.
+First we will build a visualization of the network of airports related to Las Vegas. Move on to the worksheet **R: LAS Flights Origin** or **Python: LAS Flights Origin**.
 
 <a data-flickr-embed="true"  href="https://www.flickr.com/photos/kenlund/15517242227/" title="McCarran International Airport, Las Vegas, Nevada"><img src="https://live.staticflickr.com/3939/15517242227_48c9d4c817_k.jpg" width="1024" alt="McCarran International Airport, Las Vegas, Nevada"></a>
 
->[!knowledge] Note that the data is already prepared in a usable format. For that we require one file with edge information (here how many connections exist between two airports). The file also contains the number of flights that have occurred for that Origin to Destination route. For Tableau to know how to draw the path the route will take, the route data needs to be duplicated using a self-join and amended a column `[Path Order]`.  Have a look at the data source tab for the `2) Flights All Summarized` data source for more details.
+>[!knowledge] Note that the data is already prepared in a usable format. For that we require one file with edge information (here how many connections exist between two airports). The file also contains the number of flights that have occurred for that Origin to Destination route. For Tableau to know how to draw the path the route will take, the route data needs to be duplicated using a self-join and amended a column **`[Path Order]`**.  Have a look at the data source tab for the `2) Flights All Summarized` data source for more details.
 
-The data was taken from an internal reference datasource at Tableau, but the data seems consistent with flight data shown on [Stat Computing](http://stat-computing.org/dataexpo/2009/the-data.html).
+The data was taken from an internal reference data source at Tableau, but the data seems consistent with flight data shown on [Stat Computing](http://stat-computing.org/dataexpo/2009/the-data.html).
 
 ===
 
@@ -257,7 +258,8 @@ SUM([Flights]),
 MAX([Path Order]), 
 MAX([Airport]),
 MAX(FALSE)
-)```
+)
+```
 
 We just tricked both R and Python to return multiple pieces of information in the one and only vector/list we can send back from the External Services into Tableau. 
 
@@ -267,6 +269,9 @@ As a next step we need to decompose this string into the three bits of informati
 - and betweenness centrality (R) or degree (Python).
 
 >[!knowledge] The reason we're calculating the (rather boring) overall network degree in Python instead of each node's betweenness centrality is that the excellent `igraph` library we're using in the R code requires Python 3 to run, while we decided to set this lab up with Python 2.7. As a result we're now bound to the inferior (in terms of functionality and performance) `pygraphviz` library, which doesn't allow for the calculation of centrality measures.
+
+> [!alert] Solution is on the next page.
+===
 
 This is how to decompose and extract `X`, `Y`, and the third measure:
 ```X
@@ -282,17 +287,22 @@ FLOAT(LEFT(RIGHT([R: Graph], LEN([R: Graph]) - FIND([R: Graph], '~')),
 FLOAT(RIGHT([R: Graph], LEN([R: Graph]) - FIND([R: Graph], '~', FIND([R: Graph], '~') + 1)))
 ```
 
+### Exercise: LAS Flights 
+
+* Pause DB run - Press Run to see network graph
+* Review Console Output **(NEED FOR R TOO)** **** HOW TO DO IN R? ***
+* Add Filter for Interactivity - Add the "Origin" as a filter
+* Add Highlight -- Nodes with both Las Vegas (LAS) and Boston (BOS) in common?
+
 ===
 
-### Exercise: Buyer/Seller/Ebay(?) Relationships
+### Exercise: Buyer/Seller Relationships
 
-For your exercise we're looking at another relationship network: that between customers ("buyers") and sellers on ebay. Move on to the worksheet **R: Network Analysis (Escort)** or **Python: Network Analysis (Escort)**.
+For your exercise we're looking at another relationship network: that between customers ("buyers") and sellers. Move on to the worksheet **R: Buyer/Seller Relationships** or **Python: Buyer/Seller Relationships**.
 
 ![Romance!](https://raw.githubusercontent.com/kgreger/tce19-r-you-ready-for-python/master/img/romantic-date.jpg)
 
->[!knowledge] This data set is also already prepared for you in a usable format, similar to what we outlined above for the airport data. If you're interested, have a look at the data source tab for the `3) Escorts` data source for more details.
-
-The data was taken from the [Koblenz Network Collection (KONECT) repository](http://konect.uni-koblenz.de/networks/escorts). If you're interested in a scientific analysis of the data, you can also read the [accompanying research paper](https://arxiv.org/ftp/arxiv/papers/1003/1003.3089.pdf).
+>[!knowledge] This data set is also already prepared for you in a usable format, similar to what we outlined above for the airport data. If you're interested, have a look at the data source tab for the `3) Buyer/Seller` data source for more details.
 
 >[!note]#### Exercise:
 1. Give the end user of your network graph the option to choose between various types of network graph layouts. We already created parameters (one for R, one for Python) to allow for the selection. See if you can figure out how to embed this selection into the actual R or Python code.
@@ -305,7 +315,7 @@ The following pages contains help on various levels. If you need a little jumpst
 ===
 
 >[!hint] 1. Note how the functions to generate graph layouts are being called, especially in the R code. Think of a good way of injecting whatever the parameters return into those function calls.
-2. Creating the dimension shouldn't be the issue, but keep an eye out to what happens when you add it to the viz. HOw could you prevent that from happening?
+2. Creating the dimension shouldn't be the issue, but keep an eye out to what happens when you add it to the viz. How could you prevent that from happening?
 
 >[!alert] If you're done, stuck, or want to give up, the full solutions in R and Python are shown on the next page.
 
@@ -426,7 +436,7 @@ Note that you can't just drag it onto the Color shelf as a dimension, as this wo
 In this part you will get to know:
 1. How to do a sentiment analysis and display the results.
 2. How to use parameters to change the output of our code.
-3. Which Top 1 Chartsongs from the UK and US have the most positive, negative, or overall sentiment.
+3. Which Top 1 Chart songs from the UK and US have the most positive, negative, or overall sentiment.
 4. How to use Tableau Prep Builder to conduct sentiment analysis with R and Python.
 
 Move on to the worksheet **R: Lyrics Sentiment** or **Python: Lyrics Sentiment**.
@@ -551,7 +561,7 @@ MIN([Lyrics]),
 The R solution is pretty straight forward since the function itself accepts a vector. To determine the return value, the text of a parameter can be used. For Python the implementation looks a little bit different, because the function we are using does not take a list, but an atomic string value. To accomodate that, we need a `for` loop. Otherwise the Python code would need to be evaluated for each and every song, which takes longer than the `for` loop because of transfer and package load times.
 
 ===
-### Exercise
+### Exercise: Pre-processing with Prep Builder
 
 In this exercise, we will move to Tableau Prep to conduct an exercise using our new external services feature, recently released in 2019.3! We will conduct sentiment analysis on reviews of buffets in Vegas to determine their compound score.
 
@@ -659,6 +669,7 @@ def classify_sentiment(data_frame):
     return(data_frame)
     
 ```
+
 
 ## Done!
 
