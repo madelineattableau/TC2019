@@ -27,7 +27,6 @@ Your first tasks for this session:
 
 1. Please start by opening this file: `R ... You Ready for Python - Starter.twbx`
 2. If a pop-up window appears with some confusing looking code, press enter.
-3. 
 
 >[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy! **need to add gif here**
 !IMAGE[Choose wisely!](choose-r-or-python.png)
@@ -563,18 +562,20 @@ The R solution is pretty straight forward since the function itself accepts a ve
 ===
 ### Exercise: Pre-processing with Prep Builder
 
-In this exercise, we will move to Tableau Prep to conduct an exercise using our new external services feature, recently released in 2019.3! We will conduct sentiment analysis on reviews of buffets in Vegas to determine their compound score.
+In this exercise, we will move to Tableau Prep to conduct an exercise using our new external services feature, recently released in 2019.3! We will conduct sentiment analysis on yelp reviews of buffets in Vegas to determine each review's compound sentiment score.
 
 Move to the Tableau Prep Shortcut on the Desktop and open the flow titled **yelp_sentiment_flow_starter.tflx**.
+If a security warning comes up (looks like **THIS**), press load.
 
 1. Create a dummy variable (null column) for the script to populate once it runs.
-2. Edit the .py file or .R file on the desktop to write a function that takes a dataframe as its input and outputs a sentiment score into the dummy variable column.
+2. Edit the .py file or .R file on the desktop to write a function 'classify_sentiment' that takes a dataframe as its input and outputs a sentiment score into the dummy variable column.
 3. Save the file!
-4. Add a 'Script' step and connect to the correct server, then add the function name to the 'function name' field.
+4. Add a 'Script' step and connect to the correct server, then add the function name 'classify_sentiment' to the 'function name' field.
 5. Run the flow to see the null column populate!
-6. Run the output to download a new, cleaned copy of the dataset. 
+
 
 The outcome should look like this:
+**image here**
 
 ==
 
@@ -586,18 +587,19 @@ library(SentimentAnalysis)
 library(SnowballC)
 library(Rserve)
 
+#create a function that takes 1 input, a datafrme
 classify_sentiment <- function(data_frame) {
-  data_frame$sentiment = NULL;
-  compound_sentiments <- vector();
-  for (i in 1:nrow(data_frame)) {
-    string_text <- data_frame[i, 'xxx'];
-    sentiment_vector <- analyzeSentiment(xxx);
-    compound <- sentiment_vector[, 'xxx'];
-    data_frame$sentiment[i] = compound;
-    
-  }
   
-  return(data_frame);
+  #grab the column with review text
+  df_text <- data_frame[,'xxx']
+  #create a vector and assign it the sentiment analysis results
+  sentiment_vector <- analyzeSentiment(xxx);
+  #grab the right score to return
+  compound <- xxx[, 'SentimentQDAP'];
+  #assign score to the sentiment column in the dataframe
+  data_frame$sentiment <- xxx
+  return the dataframe 
+  return(data_frame)
 }
 ```
 
@@ -613,9 +615,9 @@ def classify_sentiment(data_frame):
     #for loop to go through each line of text in dataframe
     sentiment_list = []
     for i in range(0, data_frame.shape[0]):
-        #run polarity scoring
-        score = SentimentIntensityAnalyzer().polarity_scores(data_frame['xxx'].iloc[i])
-        #append desired type of sentiment score to sentiment_list
+        #run polarity scoring here
+	#score = 
+        #append desired type of sentiment score to sentiment_list here
         sentiment_list.append(score['xxx'])
 
     #reassign to sentiment column
@@ -634,16 +636,11 @@ library(SentimentAnalysis)
 library(SnowballC)
 library(Rserve)
 
-classify_sentiment <- function(data_frame) {
-  data_frame$sentiment = NULL;
-  compound_sentiments <- vector()
-  for (i in 1:nrow(data_frame)) {
-    string_text <- data_frame[i, 'text']
-    sentiment_vector <- analyzeSentiment(string_text)
-    compound <- sentiment_vector[, 'SentimentQDAP']
-    data_frame$sentiment[i] = compound
-    
-  }
+classify_sentiment_<- function(data_frame){
+  df_text <- data_frame[,'text']
+  sentiment_vector <- analyzeSentiment(df_text);
+  compound <- sentiment_vector[, 'SentimentQDAP'];
+  data_frame$sentiment <- compound
   return(data_frame)
 }
 ```
