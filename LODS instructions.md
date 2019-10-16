@@ -143,6 +143,299 @@ The text you see is generated in the fields `[R: p value evaluation]` and `[Pyth
 
 Head back to your respective dashboard **R: Result** or **Python: Result** to see the whole picture and find out if you can use declared weight to bet on horses at Happy Valley!
 
+## Addressing & Partitioning
+
+  
+
+Partioning plays a pivotal component in your interactions with External Services in Tableau. Now is your chance to get hands-on and experiment to see exactly what that looks like from within Tableau Desktop.
+
+  
+
+Here we will cover:
+
+1. Creating a new field to use in R or Python
+
+2. The effects of partitioning on the R and Python results
+
+3. How to leverage the console to help debug your code
+
+  
+
+### Exercise: Partitioning
+
+  
+
+>[!note]#### Exercise: Partitioning
+
+1. Open the **Partitioning** worksheet
+
+2. Drag **index_x_10** to the columns shelf
+
+3. Edit the **index_x_10** field to return 10 times the `index()` value for the given row. The count should display from 10 to 150 across all the rows.
+
+  
+
+**Final Visualization**  _(click to enlarge)_
+
+![https://4h5wnw.ch.files.1drv.com/y4mcImaaXg1VAy4rspAzwWuG9pYVtz9umvdfHe80x-dGAqr1oXNssFpJa5GAUTcekz03RZNyo9iPNDUSSQ8IJxyJRzBv7c0HcplC4HnpaSMVxZrfKseafC6g9klMLvzYWbrDm-8R05OX5-C6k0OOyNDw46kc7u65A8fDL0KnZ070-Di56uhbphgAE7vcEd4JIBtdi4Wsxf_23mj4j1Av1H04A/02a-Table-Down.png?psid=1](https://4h5wnw.ch.files.1drv.com/y4mcImaaXg1VAy4rspAzwWuG9pYVtz9umvdfHe80x-dGAqr1oXNssFpJa5GAUTcekz03RZNyo9iPNDUSSQ8IJxyJRzBv7c0HcplC4HnpaSMVxZrfKseafC6g9klMLvzYWbrDm-8R05OX5-C6k0OOyNDw46kc7u65A8fDL0KnZ070-Di56uhbphgAE7vcEd4JIBtdi4Wsxf_23mj4j1Av1H04A/02a-Table-Down.png?psid=1)
+
+  
+  
+
+>[!alert] There will be more spoilers if you proceed!
+
+  
+
+===
+
+  
+
+The following code lines could help you out. Here is how you return 10 times the value of **index()** for each row.
+
+  
+
+#### R
+
+```R
+
+SCRIPT_INT("
+
+result = .arg1
+
+",
+
+INDEX()
+
+)
+
+```
+
+#### Python
+
+```Python
+
+SCRIPT_INT("
+
+result = [x * 10 for x in _arg1]
+
+return result
+
+",
+
+INDEX())
+
+```
+
+  
+
+>[!alert] Proceed for the full solution.
+
+===
+
+### Solution: Partitioning Table Down
+
+  
+
+The following code will return 10 times the value of **index()** for each row
+
+  
+
+#### R
+
+```R
+
+SCRIPT_INT("
+
+result = .arg1
+
+",
+
+INDEX()
+
+)
+
+```
+
+#### Python
+
+```Python
+
+SCRIPT_INT("
+
+result = [x * 10 for x in _arg1]
+
+return result
+
+",
+
+INDEX())
+
+```
+
+  
+
+#### Modifying the partitions
+
+1. On the column shelf, click the green pill for **index_x_10**
+
+1. In the menu, select: Compute Using > Table Down
+
+1. Click the Text Label icon above the Columns shelf, or Drag **index_x_10** to the Label card to display the value.
+
+  
+
+**Final Visualization**  _(click to enlarge)_
+
+![https://4h5wnw.ch.files.1drv.com/y4mcImaaXg1VAy4rspAzwWuG9pYVtz9umvdfHe80x-dGAqr1oXNssFpJa5GAUTcekz03RZNyo9iPNDUSSQ8IJxyJRzBv7c0HcplC4HnpaSMVxZrfKseafC6g9klMLvzYWbrDm-8R05OX5-C6k0OOyNDw46kc7u65A8fDL0KnZ070-Di56uhbphgAE7vcEd4JIBtdi4Wsxf_23mj4j1Av1H04A/02a-Table-Down.png?psid=1](https://4h5wnw.ch.files.1drv.com/y4mcImaaXg1VAy4rspAzwWuG9pYVtz9umvdfHe80x-dGAqr1oXNssFpJa5GAUTcekz03RZNyo9iPNDUSSQ8IJxyJRzBv7c0HcplC4HnpaSMVxZrfKseafC6g9klMLvzYWbrDm-8R05OX5-C6k0OOyNDw46kc7u65A8fDL0KnZ070-Di56uhbphgAE7vcEd4JIBtdi4Wsxf_23mj4j1Av1H04A/02a-Table-Down.png?psid=1)
+
+  
+  
+
+===
+
+### Exercise: Partitioning by Ship Mode
+
+>[!note]#### Exercise: Partitioning by Ship Mode
+
+1. Duplicate the **Partitioning** worksheet you just completed.
+
+2. Modify the partitioning to reset the count for each new **Ship Mode** value. The count should display from 10 to 50, resetting for each Ship Mode.
+
+  
+
+**Final Visualization**  _(click to enlarge)_
+
+![https://4h5wnw.ch.files.1drv.com/y4m9t-jxnWUaka8ktBghesEMirGjdFMjr2oM6S2korfSVvbOT2I8U1k66pNuBx5HN4ZVVnzKhw1fAexbwQKVKBITNNbvt_qa31GUChVrN2RUMveGR9PaOuYMu-uevzccTvqM4r7k61MgixB_njs_E4C4sD_GQZCrzZj4wrxII01qJhQQpGyu_Y3wjph2dbGC4zy47VsnqkifcIugZKdFFyFCg/02b-Pane-Down.png?psid=1&width=598&height=177](https://ch3302files.storage.live.com/y4m9t-jxnWUaka8ktBghesEMirGjdFMjr2oM6S2korfSVvbOT2I8U1k66pNuBx5HN4ZVVnzKhw1fAexbwQKVKBITNNbvt_qa31GUChVrN2RUMveGR9PaOuYMu-uevzccTvqM4r7k61MgixB_njs_E4C4sD_GQZCrzZj4wrxII01qJhQQpGyu_Y3wjph2dbGC4zy47VsnqkifcIugZKdFFyFCg/02b-Pane-Down.png?psid=1&width=598&height=177)
+
+>[!alert] Proceed for the full solution.
+
+===
+
+### Solution: Partitioning Pane Down
+
+  
+
+#### Modifying the partitions
+
+1. On the column shelf, click the green pill for **index_x_10**
+
+1. In the menu, select: Compute Using > Pane Down
+
+1. (Optional): Drag **Ship Mode** to the Color Card
+
+  
+
+**Final Visualization**  _(click to enlarge)_
+
+![https://4h5wnw.ch.files.1drv.com/y4m9t-jxnWUaka8ktBghesEMirGjdFMjr2oM6S2korfSVvbOT2I8U1k66pNuBx5HN4ZVVnzKhw1fAexbwQKVKBITNNbvt_qa31GUChVrN2RUMveGR9PaOuYMu-uevzccTvqM4r7k61MgixB_njs_E4C4sD_GQZCrzZj4wrxII01qJhQQpGyu_Y3wjph2dbGC4zy47VsnqkifcIugZKdFFyFCg/02b-Pane-Down.png?psid=1&width=598&height=177](https://ch3302files.storage.live.com/y4m9t-jxnWUaka8ktBghesEMirGjdFMjr2oM6S2korfSVvbOT2I8U1k66pNuBx5HN4ZVVnzKhw1fAexbwQKVKBITNNbvt_qa31GUChVrN2RUMveGR9PaOuYMu-uevzccTvqM4r7k61MgixB_njs_E4C4sD_GQZCrzZj4wrxII01qJhQQpGyu_Y3wjph2dbGC4zy47VsnqkifcIugZKdFFyFCg/02b-Pane-Down.png?psid=1&width=598&height=177)
+
+  
+  
+
+===
+
+### Exercise: Partitioning by Order Priority
+
+>[!note]#### Exercise: Partitioning by Order Priority
+
+1. Duplicate the **Partitioning** worksheet you just completed.
+
+1. Modify the partitioning to reset the count for each new **Order Priority** value. The count should display from 10 to 30, resetting for each Order Priority.
+
+  
+
+>[!hint] With the current visualization, you might have to edit the partition for Specific Dimensions
+
+  
+
+>[!Knowledge] Reading Table Calculations in an English Sentence:
+
+For Each _[unchecked dimension]_ Compute _[script]_ By _[checked dimensions]_
+
+  
+
+**Final Visualization**  _(click to enlarge)_
+
+![https://4h5wnw.ch.files.1drv.com/y4mTKXDcOkxJOP_YYpaAEllfgeyzLxYA5f9SBd2ONS2svxta_3kq6GrMNUrCxdkF2x90SKLryicqZ4seQZ07Lb1AMyT2tOm-msVW4i74Aj0F8pcFe0CijxcAZzLHziQkwHDdm7fceZgBF5omcasW-dpsoe3mmIaIjtjyFpHIX23WhqHWUvQK7pfbWnvvYDopBWikVGyxYNBmm3iOgtN9_xszA/02c-Order-Priority-partition.png?psid=1](https://4h5wnw.ch.files.1drv.com/y4mTKXDcOkxJOP_YYpaAEllfgeyzLxYA5f9SBd2ONS2svxta_3kq6GrMNUrCxdkF2x90SKLryicqZ4seQZ07Lb1AMyT2tOm-msVW4i74Aj0F8pcFe0CijxcAZzLHziQkwHDdm7fceZgBF5omcasW-dpsoe3mmIaIjtjyFpHIX23WhqHWUvQK7pfbWnvvYDopBWikVGyxYNBmm3iOgtN9_xszA/02c-Order-Priority-partition.png?psid=1)
+
+  
+
+>[!alert] Proceed for the full solution.
+
+===
+
+### Solution: Partitioning Order Priority
+
+  
+
+#### Modifying the partitions
+
+1. On the column shelf, click the green pill for **index_x_10**
+
+1. In the menu, select: **Edit Table Calculation**
+
+1. Change **Compute Using** to: **Specific Dimensions**
+
+1. Uncheck **Order Priority** and close that window
+
+1. (Optional): Drag **Order Priority** to the Color Card
+
+  
+  
+
+**Final Visualization**  _(click to enlarge)_
+
+![https://4h5wnw.ch.files.1drv.com/y4mTKXDcOkxJOP_YYpaAEllfgeyzLxYA5f9SBd2ONS2svxta_3kq6GrMNUrCxdkF2x90SKLryicqZ4seQZ07Lb1AMyT2tOm-msVW4i74Aj0F8pcFe0CijxcAZzLHziQkwHDdm7fceZgBF5omcasW-dpsoe3mmIaIjtjyFpHIX23WhqHWUvQK7pfbWnvvYDopBWikVGyxYNBmm3iOgtN9_xszA/02c-Order-Priority-partition.png?psid=1](https://4h5wnw.ch.files.1drv.com/y4mTKXDcOkxJOP_YYpaAEllfgeyzLxYA5f9SBd2ONS2svxta_3kq6GrMNUrCxdkF2x90SKLryicqZ4seQZ07Lb1AMyT2tOm-msVW4i74Aj0F8pcFe0CijxcAZzLHziQkwHDdm7fceZgBF5omcasW-dpsoe3mmIaIjtjyFpHIX23WhqHWUvQK7pfbWnvvYDopBWikVGyxYNBmm3iOgtN9_xszA/02c-Order-Priority-partition.png?psid=1)
+
+  
+
+===
+
+  
+
+### Exercise: Output to Console
+
+>[!note]#### BONUS: Output to Console
+
+  
+
+###R
+
+>[!alert] R users will have to modify their Rserve instance to open in Debug mode
+
+  
+
+1. Add a print line in your code, e.g. ***print('test')***
+
+1. From Notepad, open: **C:\Users\LabUser\Documents\start-rserve.r**
+
+1. Update the code to the following
+
+```R
+
+library(Rserve)
+
+run.Rserve()
+
+```
+
+4. Close the existing Rserve command window
+
+4. Double-click on the **start-rserve.bat** file again
+
+4. Refresh the page with your **print** code (F5)
+
+4. Navigate the Rserve command window to observe the output
+
+  
+
+###Python
+
+1. Add a print line in your code, e.g. ***print('test')***
+
+1. Navigate the TabPy command window to observe the output
+
+
 ===
 
 ## Network Graphs
