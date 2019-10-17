@@ -685,7 +685,6 @@ Now that we have a Network Graph, we can start to leverage the power of External
 ![https://4h5wnw.ch.files.1drv.com/y4m43iYd_IRjejQ9y-VASMxLjalqGsyCIv5khA3DM8LavWhqdqbtRpSXfdqE5HWepBeMH438MYZHgXBZtbApOfY2SCF4muF9dj1YKrJNwwkF-KTYb-xtJ0gsKI9X821fldnSeigZRgwaFVD7J6B62KImBgb02raEodEVtqa_7AA4_2q7wEs8eRkwMOOLQC7k9k-FC7tn6MqvSKfD-b1OB6phw/03r-30-Airports-Highlights.png?psid=1](https://4h5wnw.ch.files.1drv.com/y4m43iYd_IRjejQ9y-VASMxLjalqGsyCIv5khA3DM8LavWhqdqbtRpSXfdqE5HWepBeMH438MYZHgXBZtbApOfY2SCF4muF9dj1YKrJNwwkF-KTYb-xtJ0gsKI9X821fldnSeigZRgwaFVD7J6B62KImBgb02raEodEVtqa_7AA4_2q7wEs8eRkwMOOLQC7k9k-FC7tn6MqvSKfD-b1OB6phw/03r-30-Airports-Highlights.png?psid=1)
 ===
 
-### Exercise: Buyer/Seller Relationships
 ### Exercise: Buyer and Seller Relationships
 
 For your exercise we're looking at another relationship network: that between customers ("buyers") and sellers on ebay. Move on to the worksheet **R: Network Analysis (Buyer-Seller)** or **Python: Network Analysis (Buyer-Seller)**.
@@ -711,7 +710,7 @@ The following pages contains help on various levels. If you need a little jumpst
 
 ===
 
-### Solution: Buyer/Seller/Ebay Relationships
+### Solution: Buyer and Seller Relationships
 
 ### R
 ```R
