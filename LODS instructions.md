@@ -31,9 +31,7 @@ Your first tasks for this session:
 >[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy! **need to add gif here**
 !IMAGE[Choose wisely!](choose-r-or-python.png)
 
-4. Click on the R: Results Text or the Python: Results Text sheet. You will start the exercise here. 
-
-You are now at the results page. The t-test should be evaluated here. To get started on the first exercise you can move to the sheet **R: Result Text** if you are an R user or to **Python: Result Text** if you are a Pythonista.
+3. Click on the **R: Results Text** or the **Python: Results Text** sheet. You will start the exercise here. You are now at the results page. The t-test should be evaluated here. 
 
 ===
 
@@ -59,7 +57,7 @@ The following pages contains help on various levels. If you need a little jumpst
 
 ===
 
-The following code lines could help you out.
+The following lines of code may help you out.
 
 ### R
 ```R
@@ -105,6 +103,7 @@ This is how to calculate the p-value:
 
 ### R
 ```R
+
 SCRIPT_REAL(
 "
 # do the t-test here:
@@ -112,11 +111,14 @@ t <- t.test( .arg1 ~ .arg2 )
 # return the p value here:
 return(t$p.value)
 ",
+
 AVG([Declared Weight]), 
+
 ATTR([Won]))
 ```
 ### Python
 ```Python
+
 SCRIPT_REAL(
 "
 #load packages
@@ -142,6 +144,11 @@ AVG([Declared Weight]), ATTR([Won])
 The text you see is generated in the fields `[R: p value evaluation]` and `[Python: p value evaluation]` - as we said, you don't need to change these.
 
 Head back to your respective dashboard **R: Result** or **Python: Result** to see the whole picture and find out if you can use declared weight to bet on horses at Happy Valley!
+
+**image here**
+
+### Next Exercise
+===
 
 ## Addressing & Partitioning
 
@@ -816,19 +823,20 @@ IF LEFT([Person], 1) == "b" THEN "Buyer" ELSE "Seller" END
 
 Note that you can't just drag it onto the Color shelf as a dimension, as this would change the addressing and partitioning of our `SCRIPT_*()` functions - remember: they're Table Calculations! The trick is, to use them as attributes, by wrapping them in `ATTR()`.
 
+### Next Exercise
 ===
 
 ## Sentiment Analysis
 
 ### Introduction
 
-In this part you will get to know:
+In this part you will learn:
 1. How to do a sentiment analysis and display the results.
-2. How to use parameters to change the output of our code.
-3. Which Top 1 Chart songs from the UK and US have the most positive, negative, or overall sentiment.
+2. How to use parameters to change the output of your code.
+3. Which Top 1 Chart songs from the UK and US have the most positive or negative sentiment.
 4. How to use Tableau Prep Builder to conduct sentiment analysis with R and Python.
 
-Move on to the worksheet **R: Lyrics Sentiment** or **Python: Lyrics Sentiment**.
+Please move to the worksheet **R: Lyrics Sentiment** or **Python: Lyrics Sentiment**.
 
 ![Sing with me](https://www.edmsauce.com/wp-content/uploads/2018/03/Spotify-Lyrics-1068x601.jpg)
 
@@ -865,7 +873,9 @@ The following code lines could help you to out.
 
 ### R
 ```R
+
 SCRIPT_REAL("
+
 # load in required packages
 library(SentimentAnalysis)
 
@@ -879,7 +889,9 @@ return(polarity[,xxx[x]])
 ```
 ### Python
 ```Python
+
 SCRIPT_REAL("
+
 # load in packages
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
@@ -949,10 +961,16 @@ MIN([Lyrics]),
 
 The R solution is pretty straight forward since the function itself accepts a vector. To determine the return value, the text of a parameter can be used. For Python the implementation looks a little bit different, because the function we are using does not take a list, but an atomic string value. To accomodate that, we need a `for` loop. Otherwise the Python code would need to be evaluated for each and every song, which takes longer than the `for` loop because of transfer and package load times.
 
+### Next Exercise
+
 ===
 ### Exercise: Pre-processing with Prep Builder
 
-In this exercise, we will move to Tableau Prep to conduct an exercise using our new external services feature, recently released in 2019.3! We will conduct sentiment analysis on yelp reviews of buffets in Vegas to determine each review's compound sentiment score.
+In this exercise, we will move to Tableau Prep Builder to conduct an exercise using our new external services feature, recently released in 2019.3! We will conduct sentiment analysis on yelp reviews of buffets in Vegas to determine each review's compound sentiment score.
+
+For now, you can just listen to how Prep Builder interacts with R and Python.
+
+===
 
 Move to the Tableau Prep Shortcut on the Desktop and open the flow titled **yelp_sentiment_flow_starter.tflx**.
 If a security warning comes up (looks like **THIS**), press load.
