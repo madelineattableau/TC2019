@@ -444,7 +444,10 @@ run.Rserve()
 
 In this part we will show you:
 1. How to generate fancy looking network graphs in Tableau.
-2. How to return more than one value from External Services (R or Python) into Tableau.
+1. How to return more than one value from External Services (R or Python) into Tableau.
+1. How to send commands to R or Python only when you're ready to do so.
+1. How to add interactivity.
+1. Practice partitioning again, combined with the use of dual-axis
 
 First we will build a visualization of the network of airports related to Las Vegas. Move on to the worksheet **R: LAS Flights Origin** or **Python: LAS Flights Origin**.
 
@@ -560,12 +563,11 @@ As a next step we need to decompose this string into the three bits of informati
 - Y position, 
 - and betweenness centrality (R) or degree (Python).
 
->[!knowledge] The reason we're calculating the (rather boring) overall network degree in Python instead of each node's betweenness centrality is that the excellent `igraph` library we're using in the R code requires Python 3 to run, while we decided to set this lab up with Python 2.7. As a result we're now bound to the inferior (in terms of functionality and performance) `pygraphviz` library, which doesn't allow for the calculation of centrality measures.
-
-> [!alert] Solution is on the next page.
 ===
+### Decompose the String into Tokens
+>>[!knowledge]Tokenizing strings is simply the process of splitting a string up into sub-strings that contain values which we want to use.
 
-This is how to decompose and extract `X`, `Y`, and the third measure:
+This is how to decompose and extract **X**, **Y**, and the third measure:
 ```X
 FLOAT(LEFT([R: Graph], FIND([R: Graph], '~') - 1))
 ```
@@ -579,39 +581,98 @@ FLOAT(LEFT(RIGHT([R: Graph], LEN([R: Graph]) - FIND([R: Graph], '~')),
 FLOAT(RIGHT([R: Graph], LEN([R: Graph]) - FIND([R: Graph], '~', FIND([R: Graph], '~') + 1)))
 ```
 
-### Exercise: LAS Flights 
+===
 
-* Pause DB run - Press Run to see network graph
-* Review Console Output **(NEED FOR R TOO)** **** HOW TO DO IN R? ***
+### Exercise: Flights
+
+>[!note]#### Exercise: Refresh on Demand
+
+The worksheet isn't refreshing. Why? Can you fix it?​
+
+1. Open the **LAS+Others (Flights All Summarized)** worksheet.
+
+2. Figure out why the visualization isn't refreshing.
+
+>[!hint] The reason might have nothing directly to do with the code or external services
+
+  
+
+>[!alert] Proceed for the full solution.
+
+===
+
+### Solution: Refresh on Demand
+
+In this case, the code isn't running because we have disabled Auto-update for the worksheet.
+
+This is a useful feature to know about as you develop your custom scripts *-- though certainly not a requirement*. If you don't turn off **Auto-update** Tableau will just pass the **Script_** code to the external service for each interaction you make with the worksheet _(just as it would update for interactions with your data sources)_.
+
+1. In the icon menu at the top of Tableau Desktop, click the Run-Update Icon ![https://help.tableau.com/v2019.3/pro/desktop/en-us/Img/runquery.png](https://help.tableau.com/v2019.3/pro/desktop/en-us/Img/runquery.png)
+ (or press F9)
+
+1. Observe the data is now showing in the viz
+
+#### R Initial View
+ ![https://4h5wnw.ch.files.1drv.com/y4mzl_QTqdToo3_IN3WqNJGIz4EVLDo5LnOL9kg-KUaPWNfrvpC57TBes5pVNf-Te-qtRoURDiQQ5o8QI_6D5MhrRwakc2IQsT5Hi3tnGZZE80klKC9adfS_9VZDrr5EZ3WMrJ-LcB5nLsnscpVkzFWT4xorg_jMYFQ9nbyJaHLpx9vHvENpiNxZpb8eGY6hLFpPrLj4MNvAd2rEVsXgXYxuA/03r-10-Airports-initial.png?psid=1](https://4h5wnw.ch.files.1drv.com/y4mzl_QTqdToo3_IN3WqNJGIz4EVLDo5LnOL9kg-KUaPWNfrvpC57TBes5pVNf-Te-qtRoURDiQQ5o8QI_6D5MhrRwakc2IQsT5Hi3tnGZZE80klKC9adfS_9VZDrr5EZ3WMrJ-LcB5nLsnscpVkzFWT4xorg_jMYFQ9nbyJaHLpx9vHvENpiNxZpb8eGY6hLFpPrLj4MNvAd2rEVsXgXYxuA/03r-10-Airports-initial.png?psid=1)
+
+#### Python Initial View
+![https://4h5wnw.ch.files.1drv.com/y4mTIh5clIoQxLKN3spzw2goB3yWIBk6BvmChz4U8c6VAgEAHdTE3xXYWCEhD1Yg69990wukCxmof9uzNS_1A-zfQ2TRP8auCCk4i35icx_zByM5dhM41-qbGtQZCdOBLJnQhYho304VL8SgIZo9Brxl7WxiALUqYFV_lajV2JvipzKB2HSxy3UaTSPvpiLn7Y6JVfWkzIQGy8hsIje8OPkKQ/03p-10-Airports-initial.png?psid=1](https://4h5wnw.ch.files.1drv.com/y4mTIh5clIoQxLKN3spzw2goB3yWIBk6BvmChz4U8c6VAgEAHdTE3xXYWCEhD1Yg69990wukCxmof9uzNS_1A-zfQ2TRP8auCCk4i35icx_zByM5dhM41-qbGtQZCdOBLJnQhYho304VL8SgIZo9Brxl7WxiALUqYFV_lajV2JvipzKB2HSxy3UaTSPvpiLn7Y6JVfWkzIQGy8hsIje8OPkKQ/03p-10-Airports-initial.png?psid=1)
+
+
+===
+### Exercise: Flights Partitions and Paths
+
+We have nodes on screen now, but we still need to make some adjustments to see the edges.
+
+>[!note]#### Exercise: Creating the Network Visualization
+
+1. Continue working with **LAS+Others (Flights All Summarized)** worksheet.
+
+1. Adjust the Partitioning to a setting that will allow you to send all the rows to the external service (R/Python) in one call
+
+1. Adjust the visualization to show a secondary axis for the **Y** field.  Make adjustments so one axis is represented as a circle.  The other should be represented by a line, with **Path Order** used as the path.  
+
+
+>[!alert] Proceed for some hints
+
+===
+### Hints: Flights Partitions and Paths
+>[!hint]
+* To send the data all at once, all of the dimensions should be checked, i.e. **Path Order**, **Dest**, and **Origin**
+* Duplicate the **Y** field that is on the row shelf _(CTRL + Click and Drag to the right)_.  Be sure to set this field as a secondary axis
+* Adjust the **Y** measure in the marks card area to have the first entry _(right below "All")_ represented as a line.  
+
+>[!alert] Proceed for the full solution
+===
+### Solution: Partitions and Paths
+
+We started with the partitioning setup not quite correct, and only a singular axis.  To solve this exercise, we needed to create another axis and leverage **Path Order** to define our path.
+
+1. Edit the Table Calculations for both the **X** and **Y** fields, using specific dimensions.  All of the dimensions should be checked, i.e. **Path Order**, **Dest**, and **Origin**
+1. Duplicate the **Y** field that is on the row shelf _(CTRL + Click and Drag to the right)_.  
+1. Press F9 or Update the worksheet with the icon in the menu bar. ![https://help.tableau.com/v2019.3/pro/desktop/en-us/Img/runquery.png](https://help.tableau.com/v2019.3/pro/desktop/en-us/Img/runquery.png)
+
+1. Set the secondary **Y** field you just added as a dual axis.  
+1. Within the Marks card area, adjust the first **Y** measure's mark card.  Change the drop-down from circle to Line.
+1. Change the **Path Order** blue pill on Color to continuous.
+1. Duplicate the _(now green)_ **Path Order** pill that we just worked on and drop it onto the Path card.
+1. Press F9 or Update the worksheet with the icon in the menu bar. ![https://help.tableau.com/v2019.3/pro/desktop/en-us/Img/runquery.png](https://help.tableau.com/v2019.3/pro/desktop/en-us/Img/runquery.png)
+
+#### R Final Visualization
+![https://4h5wnw.ch.files.1drv.com/y4mJihvNp2KW3eQbXbcNeKLYqTM8INUFWHjndDtcLR1xeeY8VIL51ylOoUrz0Pb8wOW1ATcg-ZnnX0cglOrwKZTfbYT3dsNf_OOxR_rwsAXOVW8dRTUGvdhmtxbQxzTPWmlBlr3KDLeb5knS1qRkQ2slbRUiOUiOetfsicnl4rCMlpFgiEKLUDtYy4lfu9tNgcn5fRHQ8t5KMpP_9-knAR1PQ/03r-20-Airports-Final.png?psid=1](https://4h5wnw.ch.files.1drv.com/y4mJihvNp2KW3eQbXbcNeKLYqTM8INUFWHjndDtcLR1xeeY8VIL51ylOoUrz0Pb8wOW1ATcg-ZnnX0cglOrwKZTfbYT3dsNf_OOxR_rwsAXOVW8dRTUGvdhmtxbQxzTPWmlBlr3KDLeb5knS1qRkQ2slbRUiOUiOetfsicnl4rCMlpFgiEKLUDtYy4lfu9tNgcn5fRHQ8t5KMpP_9-knAR1PQ/03r-20-Airports-Final.png?psid=1)
+
+#### Python Final Visualization
+![https://4h5wnw.ch.files.1drv.com/y4mqXAIbl8hwvczDfEfiMl09NyyfMjLLDwA3FPNIu2M_ISLu7qV11HW4FnqI7F4NQhW2S8lNLWsHRvOPZqG33adtWBWdALfX54lIGhx4yM_vBWVHJkCYTWeWnUli7IZrRJGlIbSLrvWP9rNA426dvkq0cp7491dROuqmIMLvqaiwUsLM4tin3z-pgFBkyJ9Isl591R302z8iVo8OKvs0pMmPw/03p-20-Airports-Final.png?psid=1](https://4h5wnw.ch.files.1drv.com/y4mqXAIbl8hwvczDfEfiMl09NyyfMjLLDwA3FPNIu2M_ISLu7qV11HW4FnqI7F4NQhW2S8lNLWsHRvOPZqG33adtWBWdALfX54lIGhx4yM_vBWVHJkCYTWeWnUli7IZrRJGlIbSLrvWP9rNA426dvkq0cp7491dROuqmIMLvqaiwUsLM4tin3z-pgFBkyJ9Isl591R302z8iVo8OKvs0pMmPw/03p-20-Airports-Final.png?psid=1)
+
+===
+### Exercise: Adding Interactivity
+Analysis > Highlighters > Origin.  
+
 * Add Filter for Interactivity - Add the "Origin" as a filter
 * Add Highlight -- Nodes with both Las Vegas (LAS) and Boston (BOS) in common?
 
 ===
 
-### Exercise: Buyer/Seller Relationships
-
-For your exercise we're looking at another relationship network: that between customers ("buyers") and sellers. Move on to the worksheet **R: Buyer/Seller Relationships** or **Python: Buyer/Seller Relationships**.
-
-![Romance!](https://raw.githubusercontent.com/kgreger/tce19-r-you-ready-for-python/master/img/romantic-date.jpg)
-
->[!knowledge] This data set is also already prepared for you in a usable format, similar to what we outlined above for the airport data. If you're interested, have a look at the data source tab for the `3) Buyer/Seller` data source for more details.
-
->[!note]#### Exercise:
-1. Give the end user of your network graph the option to choose between various types of network graph layouts. We already created parameters (one for R, one for Python) to allow for the selection. See if you can figure out how to embed this selection into the actual R or Python code.
-2. As it's hard to distinguish which node is a buyer and which are the sellers, create a new dimension `[Type]` that will allow the end user to visually distinguish the two in the network graph.
-
->[!hint] You can `print()` out any statement from your R or Python code to the console you have open. Use this to test and troubleshoot your code!
-
-The following pages contains help on various levels. If you need a little jumpstart to the solution: proceed.
-
-===
-
->[!hint] 1. Note how the functions to generate graph layouts are being called, especially in the R code. Think of a good way of injecting whatever the parameters return into those function calls.
-2. Creating the dimension shouldn't be the issue, but keep an eye out to what happens when you add it to the viz. How could you prevent that from happening?
-
->[!alert] If you're done, stuck, or want to give up, the full solutions in R and Python are shown on the next page.
-
-===
 
 ### Solution: Buyer/Seller/Ebay Relationships
 
