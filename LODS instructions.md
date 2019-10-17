@@ -686,12 +686,13 @@ Now that we have a Network Graph, we can start to leverage the power of External
 ===
 
 ### Exercise: Buyer/Seller Relationships
+### Exercise: Buyer and Seller Relationships
 
-For your exercise we're looking at another relationship network: that between customers ("buyers") and sellers. Move on to the worksheet **R: Buyer/Seller Relationships** or **Python: Buyer/Seller Relationships**.
+For your exercise we're looking at another relationship network: that between customers ("buyers") and sellers on ebay. Move on to the worksheet **R: Network Analysis (Buyer-Seller)** or **Python: Network Analysis (Buyer-Seller)**.
 
-![Romance!](https://raw.githubusercontent.com/kgreger/tce19-r-you-ready-for-python/master/img/romantic-date.jpg)
+![Buyer-Seller!](https://c.pxhere.com/images/fc/44/d7ee5cfc2f73f2c97297e7f3d010-1452877.jpg!d)
 
->[!knowledge] This data set is also already prepared for you in a usable format, similar to what we outlined above for the airport data. If you're interested, have a look at the data source tab for the `3) Buyer/Seller` data source for more details.
+>[!knowledge] This data set is also already prepared for you in a usable format, similar to what we outlined above for the airport data. If you're interested, have a look at the data source tab for the `3) Buyer-Seller` data source for more details.
 
 >[!note]#### Exercise:
 1. Give the end user of your network graph the option to choose between various types of network graph layouts. We already created parameters (one for R, one for Python) to allow for the selection. See if you can figure out how to embed this selection into the actual R or Python code.
@@ -704,9 +705,11 @@ The following pages contains help on various levels. If you need a little jumpst
 ===
 
 >[!hint] 1. Note how the functions to generate graph layouts are being called, especially in the R code. Think of a good way of injecting whatever the parameters return into those function calls.
-2. Creating the dimension shouldn't be the issue, but keep an eye out to what happens when you add it to the viz. How could you prevent that from happening?
+2. Creating the dimension shouldn't be the issue, but keep an eye out to what happens when you add it to the viz. HOw could you prevent that from happening?
 
 >[!alert] If you're done, stuck, or want to give up, the full solutions in R and Python are shown on the next page.
+
+===
 
 ### Solution: Buyer/Seller/Ebay Relationships
 
@@ -720,7 +723,7 @@ set.seed(2811)
 
 # build data models
 data <- data.frame(buyer = .arg1, 
-                   escort = .arg2, 
+                   seller = .arg2, 
                    meetings = .arg3, 
                    pathOrder = .arg4) %>% 
   filter(pathOrder == '1')
@@ -744,7 +747,7 @@ paste(ret[, 2], ret[, 3], ret[, 4],
       sep = '~')
 ", 
 MAX([Buyer]), 
-MAX([Escort]), 
+MAX([Seller]), 
 SUM([Meetings]), 
 MAX([Path Order]), 
 MAX([Person]))
@@ -761,7 +764,7 @@ import re
 # build data models
 df=pd.DataFrame(data={
 	'buyer': _arg1, 
-	'escort': _arg2, 
+	'seller': _arg2, 
 	'meetings': _arg3, 
 	'pathOrder': _arg4, 
 	'person': _arg5})
@@ -775,7 +778,7 @@ g=pgv.AGraph(strict=False, directed=False)
 
 # build graph
 for index, row in df.iterrows():
-	g.add_edge(row['buyer'], row['escort'])
+	g.add_edge(row['buyer'], row['seller'])
 
 # assign layout
 ## you need to change something here!
@@ -798,7 +801,7 @@ ret['ret'] = ret[['x', 'y', 'degree']].apply(lambda x: '~'.join(x), axis=1)
 return(ret['ret'].tolist())
 ", 
 MAX([Buyer]), 
-MAX([Escort]), 
+MAX([Seller]), 
 SUM([Meetings]), 
 MAX([Path Order]), 
 MAX([Person]))
@@ -809,7 +812,7 @@ Note how the parameter is embedded into the code in a rather unusual way! Since 
 The new dimension `[Type]` looks like this:
 
 ```Type
-IF LEFT([Person], 1) == "b" THEN "Buyer" ELSE "Escort" END
+IF LEFT([Person], 1) == "b" THEN "Buyer" ELSE "Seller" END
 ```
 
 Note that you can't just drag it onto the Color shelf as a dimension, as this would change the addressing and partitioning of our `SCRIPT_*()` functions - remember: they're Table Calculations! The trick is, to use them as attributes, by wrapping them in `ATTR()`.
