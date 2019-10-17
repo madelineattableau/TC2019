@@ -666,11 +666,23 @@ We started with the partitioning setup not quite correct, and only a singular ax
 
 ===
 ### Exercise: Adding Interactivity
-Analysis > Highlighters > Origin.  
 
-* Add Filter for Interactivity - Add the "Origin" as a filter
-* Add Highlight -- Nodes with both Las Vegas (LAS) and Boston (BOS) in common?
+>[!note]#### Exercise: Adding Interactivity
+Now that we have a Network Graph, we can start to leverage the power of External Services + Tableau. We'll add a simple example -- the ability to highlight the origin airport.  Add a highlighter for the origin airport to the visualization.
 
+>[!alert] Proceed for the full solution
+===
+### Solution: Interactivity
+
+1. Navigate to the **Analysis** menu.
+1. Select: _Analysis_ > _Highlighters_ > _Origin_
+1. Make some changes to the Highlight card to see your selected airport highlighted on the visualization.
+
+#### Python Example (LAS Highlighted)
+![https://4h5wnw.ch.files.1drv.com/y4mbbiQno3eom6P9uiBOftSDWD3HIekIV6RqmZTxWLQZXJz0bbvKISkjd40MqD8H3TrnWNrM-8dT_cd0813do3Ti8vWZZNc0DUs1H3I7-1tpD6dDMZmpKNnCLKk49SCg-gKVr7wnNX_mS5e32mH7BKTi_DLIVXep3lCUrWuxpuLWuRaFzI-IEH6KKbMo_9YZpkb28P2LqsQhk9no7fnrha3Rg/03p-30-Airports-Highlights.png?psid=1](https://4h5wnw.ch.files.1drv.com/y4mbbiQno3eom6P9uiBOftSDWD3HIekIV6RqmZTxWLQZXJz0bbvKISkjd40MqD8H3TrnWNrM-8dT_cd0813do3Ti8vWZZNc0DUs1H3I7-1tpD6dDMZmpKNnCLKk49SCg-gKVr7wnNX_mS5e32mH7BKTi_DLIVXep3lCUrWuxpuLWuRaFzI-IEH6KKbMo_9YZpkb28P2LqsQhk9no7fnrha3Rg/03p-30-Airports-Highlights.png?psid=1)
+
+#### R Example (LAS Highlighted)
+![https://4h5wnw.ch.files.1drv.com/y4m43iYd_IRjejQ9y-VASMxLjalqGsyCIv5khA3DM8LavWhqdqbtRpSXfdqE5HWepBeMH438MYZHgXBZtbApOfY2SCF4muF9dj1YKrJNwwkF-KTYb-xtJ0gsKI9X821fldnSeigZRgwaFVD7J6B62KImBgb02raEodEVtqa_7AA4_2q7wEs8eRkwMOOLQC7k9k-FC7tn6MqvSKfD-b1OB6phw/03r-30-Airports-Highlights.png?psid=1](https://4h5wnw.ch.files.1drv.com/y4m43iYd_IRjejQ9y-VASMxLjalqGsyCIv5khA3DM8LavWhqdqbtRpSXfdqE5HWepBeMH438MYZHgXBZtbApOfY2SCF4muF9dj1YKrJNwwkF-KTYb-xtJ0gsKI9X821fldnSeigZRgwaFVD7J6B62KImBgb02raEodEVtqa_7AA4_2q7wEs8eRkwMOOLQC7k9k-FC7tn6MqvSKfD-b1OB6phw/03r-30-Airports-Highlights.png?psid=1)
 ===
 
 ### Exercise: Buyer/Seller Relationships
