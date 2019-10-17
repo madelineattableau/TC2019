@@ -673,6 +673,28 @@ Analysis > Highlighters > Origin.
 
 ===
 
+### Exercise: Buyer/Seller Relationships
+
+For your exercise we're looking at another relationship network: that between customers ("buyers") and sellers. Move on to the worksheet **R: Buyer/Seller Relationships** or **Python: Buyer/Seller Relationships**.
+
+![Romance!](https://raw.githubusercontent.com/kgreger/tce19-r-you-ready-for-python/master/img/romantic-date.jpg)
+
+>[!knowledge] This data set is also already prepared for you in a usable format, similar to what we outlined above for the airport data. If you're interested, have a look at the data source tab for the `3) Buyer/Seller` data source for more details.
+
+>[!note]#### Exercise:
+1. Give the end user of your network graph the option to choose between various types of network graph layouts. We already created parameters (one for R, one for Python) to allow for the selection. See if you can figure out how to embed this selection into the actual R or Python code.
+2. As it's hard to distinguish which node is a buyer and which are the sellers, create a new dimension `[Type]` that will allow the end user to visually distinguish the two in the network graph.
+
+>[!hint] You can `print()` out any statement from your R or Python code to the console you have open. Use this to test and troubleshoot your code!
+
+The following pages contains help on various levels. If you need a little jumpstart to the solution: proceed.
+
+===
+
+>[!hint] 1. Note how the functions to generate graph layouts are being called, especially in the R code. Think of a good way of injecting whatever the parameters return into those function calls.
+2. Creating the dimension shouldn't be the issue, but keep an eye out to what happens when you add it to the viz. How could you prevent that from happening?
+
+>[!alert] If you're done, stuck, or want to give up, the full solutions in R and Python are shown on the next page.
 
 ### Solution: Buyer/Seller/Ebay Relationships
 
