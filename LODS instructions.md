@@ -81,13 +81,27 @@ import pandas as pd
 import numpy as np
 from scipy import stats
 
-d = {'actual_weight': _arg1, 'won': _arg2}
+print('*******************************************')
+print('*  ARGUMENTS *')
+print('*******************************************')
+print('Arg1 size: ' + str(len(_arg1)) )
+print('Arg2 size: ' + str(len(_arg2)) )
+
+#create temp data frame with 2 args
+d = {'declared_weight': xxx, 'won': xxx}
+#subset the data based on d
 df = pd.DataFrame(data=d)
+print( df.head() )
+
+#subset the data into winning horses and losing horses
 winners = df.loc[df['won'] == 1]
 losers = df.loc[df['won'] == 0]
 
+#run the t test to return the vector with list of values
 t = stats.ttest_ind(xxx['xxx'], xxx['xxx'])
+print(t)
 
+#grab the second item in the vector t
 return t[xxx]
 
 ",
@@ -119,6 +133,7 @@ ATTR([Won]))
 ### Python
 ```Python
 
+#p values come in the form of decimals, so use script_real
 SCRIPT_REAL(
 "
 #load packages
@@ -126,16 +141,23 @@ import pandas as pd
 import numpy as np
 from scipy import stats
 
+#create dictionary that you will use to subset the data frame, assigning the correct vectors
 d = {'declared_weight': _arg1, 'won': _arg2}
+#subset the data frame
 df = pd.DataFrame(data=d)
+#subset the data frame to create winners and losers data sets
 winners = df.loc[df['won'] == 1]
 losers = df.loc[df['won'] == 0]
 
+#run the t test
 t = stats.ttest_ind(winners['declared_weight'], losers['declared_weight'])
 
+#return the second item from the vector 't'
 return t[1]
 
 ",
+
+#use the [Declared Weight] and [Won] attributes to read into the dictionary
 AVG([Declared Weight]), ATTR([Won])
 
 )
