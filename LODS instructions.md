@@ -1042,18 +1042,16 @@ classify_sentiment <- function(data_frame) {
 import pandas as pd
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-#function to classify sentiment
 def classify_sentiment(data_frame):
-    #for loop to go through each line of text in dataframe
-    sentiment_list = []
-    for i in range(0, data_frame.shape[0]):
-        #run polarity scoring here
-	#score = 
-        #append desired type of sentiment score to sentiment_list here
-        sentiment_list.append(score['xxx'])
+    print('creating list to append to...')
+    #use lambda function to grab the 'compound' sentiment score from the polarity score vector
+    scores = data_frame['xxx'].apply(lambda x:
+                                      SentimentIntensityAnalyzer().polarity_scores(x)['xxx'])
+    
 
-    #reassign to sentiment column
+    #add back to dataframe
     data_frame['xxx'] = xxx
+    print('added sentiment to dataframe... now returning dataframe')
     #return data frame
     return(data_frame)
 ```
@@ -1084,16 +1082,15 @@ import pandas as pd
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 def classify_sentiment(data_frame):
-    #for loop to go through each line of text in dataframe
-    sentiment_list = []
-    for i in range(0, data_frame.shape[0]):
-        #run polarity scoring
-        score = SentimentIntensityAnalyzer().polarity_scores(data_frame['text'].iloc[i])
-        #append to sentiment_list
-        sentiment_list.append(score['compound'])
+    print('creating list to append to...')
+    #use lambda function to grab the 'compound' sentiment score from the polarity score vector
+    scores = data_frame['text'].apply(lambda x:
+                                      SentimentIntensityAnalyzer().polarity_scores(x)['compound'])
+    
 
-    #add back to dataframe
-    data_frame['sentiment'] = sentiment_list
+    #populate sentiment column with the scores vector
+    data_frame['sentiment'] = scores
+    print('added sentiment to dataframe... now returning dataframe')
     #return data frame
     return(data_frame)
     
