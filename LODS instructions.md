@@ -134,6 +134,7 @@ ATTR([Won]))
 ```Python
 
 #p values come in the form of decimals, so use script_real
+
 SCRIPT_REAL(
 "
 #load packages
@@ -165,9 +166,10 @@ AVG([Declared Weight]), ATTR([Won])
 
 The text you see is generated in the fields `[R: p value evaluation]` and `[Python: p value evaluation]` - as we said, you don't need to change these.
 
-Head back to your respective dashboard **R: Result** or **Python: Result** to see the whole picture and find out if you can use declared weight to bet on horses at Happy Valley!
+Head back to your respective dashboard **R: Result** or **Python: Result** to see the whole picture and find out if you can use declared weight to make a better informed bet on horses at Happy Valley!
 
 **image here**
+![Python Solution](https://github.com/madelinefromtableau/TC2019/blob/master/python_T_Test_solution.PNG)
 
 ### Next Exercise
 ===
