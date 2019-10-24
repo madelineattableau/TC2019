@@ -26,7 +26,7 @@ In this part you will learn:
 Your first tasks for this session:
 
 1. Please start by opening this file: `R ... You Ready for Python - Starter.twbx`
-2. If a pop-up window appears with some confusing looking code, press enter.
+2. If a pop-up window appears with some confusing looking code (image below), press the enter key.
 
 >[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy! **need to add gif here**
 !IMAGE[Choose wisely!](choose-r-or-python.png)
@@ -38,6 +38,8 @@ Your first tasks for this session:
 ### Exercise
 
 To put it into statistical terms: Your exercise is to find out if the difference in mean values for the winners and losers of the horses that raced at Happy Valley Racecourse in Hong Kong can be explained by their declared weight, or the total weight of the horse and the jockey.
+
+![horse_racing_gif](https://media.tenor.com/images/40924e628ce0ed83b55524c0c04179c9/tenor.gif)
 
 In order to find that out, we need to do a t-test and get the p-value from the result.
 
@@ -57,7 +59,7 @@ The following pages contains help on various levels. If you need a little jumpst
 
 ===
 
-The following lines of code may help you out.
+The following lines of code may help you out. The xxx represents code you must fill in yourself!
 
 ### R
 ```R
@@ -80,12 +82,6 @@ SCRIPT_REAL(
 import pandas as pd
 import numpy as np
 from scipy import stats
-
-print('*******************************************')
-print('*  ARGUMENTS *')
-print('*******************************************')
-print('Arg1 size: ' + str(len(_arg1)) )
-print('Arg2 size: ' + str(len(_arg2)) )
 
 #create temp data frame with 2 args
 d = {'declared_weight': xxx, 'won': xxx}
@@ -988,7 +984,8 @@ The R solution is pretty straight forward since the function itself accepts a ve
 ### Next Exercise
 
 ===
-### Exercise: Pre-processing with Prep Builder
+
+### Exercise: NEW in 2019.3: Prep-processing with Prep Builder
 
 In this exercise, we will move to Tableau Prep Builder to conduct an exercise using our new external services feature, recently released in 2019.3! We will conduct sentiment analysis on yelp reviews of buffets in Vegas to determine each review's compound sentiment score.
 
@@ -997,17 +994,20 @@ For now, you can just listen to how Prep Builder interacts with R and Python.
 ===
 
 Move to the Tableau Prep Shortcut on the Desktop and open the flow titled **yelp_sentiment_flow_starter.tflx**.
-If a security warning comes up (looks like **THIS**), press load.
+If a security warning comes up (looks like **THIS**), click 'Load'.
+
+![data_security_warning](https://github.com/madelinefromtableau/TC2019/blob/master/data_security_warning.PNG)
 
 1. Create a dummy variable (null column) for the script to populate once it runs.
-2. Edit the .py file or .R file on the desktop to write a function 'classify_sentiment' that takes a dataframe as its input and outputs a sentiment score into the dummy variable column.
+2. Edit the .py file or .R file on the desktop to write a function 'classify_sentiment' that takes a dataframe as its input and outputs a 'compound' sentiment score into the dummy variable column.
 3. Save the file!
 4. Add a 'Script' step and connect to the correct server, then add the function name 'classify_sentiment' to the 'function name' field.
 5. Run the flow to see the null column populate!
 
 
 The outcome should look like this:
-**image here**
+
+![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
 
 ==
 
@@ -1095,6 +1095,9 @@ def classify_sentiment(data_frame):
     return(data_frame)
     
 ```
+
+![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
+
 
 
 ## Done!
