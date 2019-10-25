@@ -26,7 +26,7 @@ In this part you will learn:
 Your first tasks for this session:
 
 1. Please start by opening this file: `R ... You Ready for Python - Starter.twbx`
-2. If a pop-up window appears with some confusing looking code (image below), press the enter key.
+2. If a pop-up window appears with some confusing looking code, press the enter key.
 
 >[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy! **need to add gif here**
 !IMAGE[Choose wisely!](choose-r-or-python.png)
@@ -164,10 +164,9 @@ The text you see is generated in the fields `[R: p value evaluation]` and `[Pyth
 
 Head back to your respective dashboard **R: Result** or **Python: Result** to see the whole picture and find out if you can use declared weight to make a better informed bet on horses at Happy Valley!
 
-**image here**
 ![Python Solution](https://github.com/madelinefromtableau/TC2019/blob/master/python_T_Test_solution.PNG)
 
-### Next Exercise
+
 ===
 
 ## Addressing & Partitioning
@@ -843,7 +842,6 @@ IF LEFT([Person], 1) == "b" THEN "Buyer" ELSE "Seller" END
 
 Note that you can't just drag it onto the Color shelf as a dimension, as this would change the addressing and partitioning of our `SCRIPT_*()` functions - remember: they're Table Calculations! The trick is, to use them as attributes, by wrapping them in `ATTR()`.
 
-### Next Exercise
 ===
 
 ## Sentiment Analysis
@@ -981,11 +979,9 @@ MIN([Lyrics]),
 
 The R solution is pretty straight forward since the function itself accepts a vector. To determine the return value, the text of a parameter can be used. For Python the implementation looks a little bit different, because the function we are using does not take a list, but an atomic string value. To accomodate that, we need a `for` loop. Otherwise the Python code would need to be evaluated for each and every song, which takes longer than the `for` loop because of transfer and package load times.
 
-### Next Exercise
-
 ===
 
-### Exercise: NEW in 2019.3: Prep-processing with Prep Builder
+### Exercise: NEW in 2019.3 - Pre-processing with Prep Builder
 
 In this exercise, we will move to Tableau Prep Builder to conduct an exercise using our new external services feature, recently released in 2019.3! We will conduct sentiment analysis on yelp reviews of buffets in Vegas to determine each review's compound sentiment score.
 
@@ -993,8 +989,8 @@ For now, you can just listen to how Prep Builder interacts with R and Python.
 
 ===
 
-Move to the Tableau Prep Shortcut on the Desktop and open the flow titled **yelp_sentiment_flow_starter.tflx**.
-If a security warning comes up (looks like **THIS**), click 'Load'.
+Move to the Tableau Prep Shortcut on the Desktop and open the flow titled **yelp_starter_flow.tflx**.
+If a security warning comes up, click 'Load'.
 
 ![data_security_warning](https://github.com/madelinefromtableau/TC2019/blob/master/data_security_warning.PNG)
 
@@ -1004,14 +1000,18 @@ If a security warning comes up (looks like **THIS**), click 'Load'.
 4. Add a 'Script' step and connect to the correct server, then add the function name 'classify_sentiment' to the 'function name' field.
 5. Run the flow to see the null column populate!
 
+Optional bonus challenge: First filter to ~1K rows, then edit the function to output another column with positive or negative sentiment.
+
 
 The outcome should look like this:
 
 ![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
 
+>[!alert] There will be more spoilers if you proceed!
 ==
 
-The following lines of code should help you out. 
+
+The following lines of code should help you out.
 
 ### R
 ```R
