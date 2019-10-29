@@ -37,7 +37,7 @@ Your first tasks for this session:
 
 ### Exercise
 
-To put it into statistical terms: Your exercise is to find out if the difference in mean values for the winners and losers of the horses that raced at Happy Valley Racecourse in Hong Kong can be explained by their declared weight, or the total weight of the horse and the jockey.
+To put it into statistical terms: Your exercise is to find out if the difference in mean values for the winners and losers of the horses that raced at Happy Valley Racecourse in Hong Kong can be explained by their declared weight, which is the total weight of the horse and the jockey.
 
 ![horse_racing_gif](https://media.tenor.com/images/40924e628ce0ed83b55524c0c04179c9/tenor.gif)
 
