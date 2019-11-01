@@ -115,6 +115,9 @@ AVG([Declared Weight]), ATTR([Won])
 This is how to calculate the p-value:
 
 ### R
+
+![t_test_R_Solution](https://github.com/madelinefromtableau/TC2019/blob/master/t_test_R_solution.gif)
+
 ```R
 
 SCRIPT_REAL(
@@ -129,7 +132,12 @@ AVG([Declared Weight]),
 
 ATTR([Won]))
 ```
+
+
 ### Python
+
+![t_test_R_Solution](https://github.com/madelinefromtableau/TC2019/blob/master/t_test_python_solution.gif)
+
 ```Python
 
 #p values come in the form of decimals, so use script_real
@@ -162,6 +170,9 @@ AVG([Declared Weight]), ATTR([Won])
 
 )
 ```
+
+
+
 
 The text you see is generated in the fields `[R: p value evaluation]` and `[Python: p value evaluation]` - as we said, you don't need to change these.
 
