@@ -29,7 +29,8 @@ Your first tasks for this session:
 2. If a pop-up window appears with some confusing looking code, press the enter key.
 
 >[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy!
-![connection_info]https://github.com/madelinefromtableau/TC2019/blob/master/external_service_connection.gif
+
+![connection_info](https://github.com/madelinefromtableau/TC2019/blob/master/external_service_connection.gif)
 
 
 
