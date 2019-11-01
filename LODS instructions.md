@@ -28,8 +28,10 @@ Your first tasks for this session:
 1. Please start by opening this file: `R ... You Ready for Python - Starter.twbx`
 2. If a pop-up window appears with some confusing looking code, press the enter key.
 
->[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy! **need to add gif here**
-!IMAGE[Choose wisely!](choose-r-or-python.png)
+>[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy!
+![connection_info]https://github.com/madelinefromtableau/TC2019/blob/master/external_service_connection.gif
+
+
 
 3. Click on the **R: Results Text** or the **Python: Results Text** sheet. You will start the exercise here. You are now at the results page. The t-test should be evaluated here. 
 
@@ -47,7 +49,7 @@ In order to find that out, we need to do a t-test and get the p-value from the r
 1. Use the measure `[R: p value]` or `[Python: p value]` to calculate an independent t-test and return the p-value from the result of the t-test.
 2. The displayed text is generated in the fields `[R: p value evaluation]` and `[Python: p value evaluation]`. You don't need to modify these fields.
 
->[!hint] You can `print()` out any statement from your R or Python code to the console you have open. Use this to test and troubleshoot your code!
+>[!hint] You can `print()` out any statement from your Python or R code to the console you have open. Use this to test and troubleshoot your code! 
 
 The following pages contains help on various levels. If you need a little jumpstart to the solution: proceed.
 
