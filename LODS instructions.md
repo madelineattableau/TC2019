@@ -1078,7 +1078,7 @@ def classify_sentiment(data_frame):
     
 ```
 
-![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
+![prep_solution](https://drive.google.com/file/d/1InBgAydlQISvdmwrI0CxgSEGyxLsaeN5/view?usp=sharing)
 
 
 
