@@ -1009,9 +1009,9 @@ If a security warning comes up, click 'Load'.
 ![data_security_warning](https://github.com/madelinefromtableau/TC2019/blob/master/data_security_warning.PNG)
 
 1. Create a dummy variable (null column) for the script to populate once it runs.
-2. Edit the .py file or .R file on the desktop to write a function 'classify_sentiment' that takes a dataframe as its input and outputs a 'compound' sentiment score into the dummy variable column.
+2. Edit the .py file or .R file in the Lab Files Folder to write a function 'classify_sentiment' that takes a dataframe as its input and outputs a 'compound' sentiment score into the dummy variable column.
 3. Save the file!
-4. Add a 'Script' step and connect to the correct server, then add the function name 'classify_sentiment' to the 'function name' field.
+4. Go to the 'Script' step and connect to the correct server and file, then add the function name 'classify_sentiment' to the 'function name' field.
 5. Run the flow to see the null column populate!
 
 Optional bonus challenge: First filter to ~1K rows, then edit the function to output another column with positive or negative sentiment.
