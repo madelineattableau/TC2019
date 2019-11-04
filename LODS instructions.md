@@ -437,43 +437,11 @@ For Each _[unchecked dimension]_ Compute _[script]_ By _[checked dimensions]_
 
 >[!note]#### BONUS: Output to Console
 
-  
-
-###R
-
->[!alert] R users will have to modify their Rserve instance to open in Debug mode
-
-  
+### R and Python
 
 1. Add a print line in your code, e.g. ***print('test')***
 
-1. From Notepad, open: **C:\Users\LabUser\Documents\start-rserve.r**
-
-1. Update the code to the following
-
-```R
-
-library(Rserve)
-
-run.Rserve()
-
-```
-
-4. Close the existing Rserve command window
-
-4. Double-click on the **start-rserve.bat** file again
-
-4. Refresh the page with your **print** code (F5)
-
-4. Navigate the Rserve command window to observe the output
-
-  
-
-###Python
-
-1. Add a print line in your code, e.g. ***print('test')***
-
-1. Navigate the TabPy command window to observe the output
+1. Navigate the command window to observe the output
 
 
 ===
