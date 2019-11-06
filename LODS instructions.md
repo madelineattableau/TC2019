@@ -834,7 +834,7 @@ In this part you will learn:
 1. How to do a sentiment analysis and display the results.
 2. How to use parameters to change the output of your code.
 3. Which Top 1 Chart songs from the UK and US have the most positive or negative sentiment.
-4. How to use Tableau Prep Builder to conduct sentiment analysis with R and Python.
+
 
 Please move to the worksheet **R: Lyrics Sentiment** or **Python: Lyrics Sentiment**.
 
@@ -845,14 +845,20 @@ Please move to the worksheet **R: Lyrics Sentiment** or **Python: Lyrics Sentime
 ===
 ### Exercise
 
-In this exercise you need to adjust the measure `[R: Polarity]` or `[Python: Polarity]` to calculate the polarity of all lyrics in one RServe or TabPy call. The result should either be the positive, negative, or compound sentiment score, depending on the parameter `[R: Polarity Chooser]` or `[Python: Polarity Chooser]`.
+In this exercise you need to adjust the measure `[R: Polarity]` or `[Python: Polarity]` to calculate the polarity of all lyrics in one RServe or TabPy call. The result should either be the positive or negative sentiment score, depending on the parameter `[R: Polarity Chooser]` or `[Python: Polarity Chooser]`.
 
 >[!note]#### Exercise:
 1. Use the measure `[R: Polarity]` or `[Python: Polarity]` to calculate a sentiment score / polarity.
-2. Make use of the parameters `[R: Polarity Chooser]` or `[Python: Polarity Chooser]` to get only one column back, either the positive, negative, or compound sentiment score.
+
+2. Make use of the parameters `[R: Polarity Chooser]` or `[Python: Polarity Chooser]` to get only one column back, either the positive or negative sentiment score.
+
+3. Add the `[R: Polarity]` or `[Python Polarity]` field to the view and create a boxplot (either use show me, or from scratch).
+
+Optional Bonus: Create a dashboard with your boxplot worksheet that also has a URL action to listen to the song on Spotify Web Player.
+Hint: use https://open.spotify.com/track/<ATTR(Song Id)>
 
 The outcome should look like this:
-!IMAGE[result-python-sentiment.png](result-python-sentiment.png)
+!IMAGE[result-python-sentiment.png] **image here **
 
 >[!Alert] ### Python
 Please make sure to calculate the sentiment score during **one** execution of the code for all songs! You are able to execute the code for each song individually, but that will take a lot of time.
@@ -863,7 +869,7 @@ The following pages contains help on various levels. If you need a little jumpst
 
 ===
 
->[!hint] For your R-lution, lookup the function help [analyzeSentiment()](https://cran.r-project.org/web/packages/SentimentAnalysis/vignettes/SentimentAnalysis.html).  Pythonistas should lookup the function help [polarity_scores()](https://medium.com/analytics-vidhya/simplifying-social-media-sentiment-analysis-using-vader-in-python-f9e6ec6fc52f)
+>[!hint] For your R solution, lookup the function help [analyzeSentiment()](https://cran.r-project.org/web/packages/SentimentAnalysis/vignettes/SentimentAnalysis.html).  Python users should lookup the function help [polarity_scores()](https://medium.com/analytics-vidhya/simplifying-social-media-sentiment-analysis-using-vader-in-python-f9e6ec6fc52f)
 
 >[!alert] There will be more spoilers if you proceed!
 
@@ -883,7 +889,7 @@ library(SentimentAnalysis)
 polarity <- analyzeSentiment(xxx)
 
 # return NegativityGI or PositivityGI depending on parameter input
-return(polarity[,xxx[x]])
+return(polarity[,xxx[xxx]])
 
 ",MIN([Lyrics]), [R: Polarity Chooser])
 ```
@@ -958,6 +964,16 @@ return scores
 MIN([Lyrics]), 
 [Python: Polarity Chooser])
 ```
+
+1. Once you have completed the Polarity variable, drag `[R: Polarity]` or `[Python: Polarity]` to rows. 
+
+2. Then, create the boxplot using show me. Fit the display to 'Entire View', and format the size of the marks to be larger.
+
+3. Drag `[R: Polarity]` or `[Python: Polarity]` to color on the marks card.
+
+4. Interact with the parameter to see how the boxplot changes.
+
+5. To create the clickable link to listen to the song, add your worksheet to a dashboard. Then, add a URL action using 'Menu' and the link https://open.spotify.com/track/<ATTR(Song Id)>.
 
 The R solution is pretty straight forward since the function itself accepts a vector. To determine the return value, the text of a parameter can be used. For Python the implementation looks a little bit different, because the function we are using does not take a list, but an atomic string value. To accomodate that, we need a `for` loop. Otherwise the Python code would need to be evaluated for each and every song, which takes longer than the `for` loop because of transfer and package load times.
 
