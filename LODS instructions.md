@@ -1002,18 +1002,18 @@ library(SnowballC)
 library(Rserve)
 
 #create a function that takes 1 input, a datafrme
-classify_sentiment <- function(data_frame) {
+classify_sentiment <- function(prep_data_frame) {
   
   #grab the column with review text
-  df_text <- data_frame[,'xxx']
+  df_text <- prep_data_frame[,'xxx']
   #create a vector and assign it the sentiment analysis results
   sentiment_vector <- analyzeSentiment(xxx);
   #grab the right score to return
   compound <- xxx[, 'SentimentQDAP'];
   #assign score to the sentiment column in the dataframe
-  data_frame$sentiment <- xxx
+  prep_data_frame$sentiment <- xxx
   return the dataframe 
-  return(data_frame)
+  return(prep_data_frame)
 }
 ```
 
@@ -1024,18 +1024,18 @@ classify_sentiment <- function(data_frame) {
 import pandas as pd
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-def classify_sentiment(data_frame):
+def classify_sentiment(prep_data_frame):
     print('creating list to append to...')
     #use lambda function to grab the 'compound' sentiment score from the polarity score vector
-    scores = data_frame['xxx'].apply(lambda x:
+    scores = prep_data_frame['xxx'].apply(lambda x:
                                       SentimentIntensityAnalyzer().polarity_scores(x)['xxx'])
     
 
     #add back to dataframe
-    data_frame['xxx'] = xxx
+    prep_data_frame['xxx'] = xxx
     print('added sentiment to dataframe... now returning dataframe')
     #return data frame
-    return(data_frame)
+    return(prep_data_frame)
 ```
 
 ### Proceed for the full solution.
@@ -1048,12 +1048,12 @@ library(SentimentAnalysis)
 library(SnowballC)
 library(Rserve)
 
-classify_sentiment_<- function(data_frame){
+classify_sentiment_<- function(prep_data_frame){
   df_text <- data_frame[,'text']
   sentiment_vector <- analyzeSentiment(df_text);
   compound <- sentiment_vector[, 'SentimentQDAP'];
-  data_frame$sentiment <- compound
-  return(data_frame)
+  prep_data_frame$sentiment <- compound
+  return(prep_data_frame)
 }
 ```
 
@@ -1063,18 +1063,18 @@ classify_sentiment_<- function(data_frame){
 import pandas as pd
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-def classify_sentiment(data_frame):
+def classify_sentiment(prep_data_frame):
     print('creating list to append to...')
     #use lambda function to grab the 'compound' sentiment score from the polarity score vector
-    scores = data_frame['text'].apply(lambda x:
+    scores = prep_data_frame['text'].apply(lambda x:
                                       SentimentIntensityAnalyzer().polarity_scores(x)['compound'])
     
 
     #populate sentiment column with the scores vector
-    data_frame['sentiment'] = scores
+    prep_data_frame['sentiment'] = scores
     print('added sentiment to dataframe... now returning dataframe')
     #return data frame
-    return(data_frame)
+    return(prep_data_frame)
     
 ```
 
