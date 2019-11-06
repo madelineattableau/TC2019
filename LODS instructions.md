@@ -219,54 +219,6 @@ Here we will cover:
 
 ![https://4h5wnw.ch.files.1drv.com/y4mcImaaXg1VAy4rspAzwWuG9pYVtz9umvdfHe80x-dGAqr1oXNssFpJa5GAUTcekz03RZNyo9iPNDUSSQ8IJxyJRzBv7c0HcplC4HnpaSMVxZrfKseafC6g9klMLvzYWbrDm-8R05OX5-C6k0OOyNDw46kc7u65A8fDL0KnZ070-Di56uhbphgAE7vcEd4JIBtdi4Wsxf_23mj4j1Av1H04A/02a-Table-Down.png?psid=1](https://4h5wnw.ch.files.1drv.com/y4mcImaaXg1VAy4rspAzwWuG9pYVtz9umvdfHe80x-dGAqr1oXNssFpJa5GAUTcekz03RZNyo9iPNDUSSQ8IJxyJRzBv7c0HcplC4HnpaSMVxZrfKseafC6g9klMLvzYWbrDm-8R05OX5-C6k0OOyNDw46kc7u65A8fDL0KnZ070-Di56uhbphgAE7vcEd4JIBtdi4Wsxf_23mj4j1Av1H04A/02a-Table-Down.png?psid=1)
 
-  
-  
-
->[!alert] There will be more spoilers if you proceed!
-
-  
-
-===
-
-  
-
-The following code lines could help you out. Here is how you return 10 times the value of **index()** for each row.
-
-  
-
-#### R
-
-```R
-
-SCRIPT_INT("
-
-result = .arg1
-
-",
-
-INDEX()
-
-)
-
-```
-
-#### Python
-
-```Python
-
-SCRIPT_INT("
-
-result = [x * 10 for x in _arg1]
-
-return result
-
-",
-
-INDEX())
-
-```
-
-  
 
 >[!alert] Proceed for the full solution.
 
@@ -286,7 +238,7 @@ The following code will return 10 times the value of **index()** for each row
 
 SCRIPT_INT("
 
-result = .arg1
+result = .arg1 * 10
 
 ",
 
@@ -311,8 +263,7 @@ return result
 INDEX())
 
 ```
-
-  
+ 
 
 #### Modifying the partitions
 
