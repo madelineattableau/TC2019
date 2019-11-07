@@ -853,7 +853,7 @@ Optional Bonus: Create a dashboard with your boxplot worksheet that also has a U
 Hint: use https://open.spotify.com/track/<ATTR(Song Id)>
 
 The outcome should look like this (click to enlarge):
-!IMAGE[result-python-sentiment.png](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/sentiment_analysis_solution.PNG)
+![result-python-sentiment.png](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/sentiment_analysis_solution.PNG)
 
 >[!Alert] ### Python
 Please make sure to calculate the sentiment score during **one** execution of the code for all songs! You are able to execute the code for each song individually, but that will take a lot of time.
@@ -924,7 +924,7 @@ This is how to analyze the song lyrics' sentiment:
 ### R
 
 R Code Solution (click to enlarge):
-![result-r-sentiment.gif](\\\\)
+![result-r-sentiment.gif](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/r_sentiment_solution.gif)
 
 
 ```R
