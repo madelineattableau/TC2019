@@ -30,7 +30,7 @@ Your first tasks for this session:
 
 >[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy!
 
-![connection_info](https://1drv.ms/u/s!AqRiuLbxwuAAaxtQC_2xZW3JWDA)
+![connection_info](https://1drv.ms/u/s!AqRiuLbxwuAAaSc_MmUlPRFSNSw?e=WziXfN)
 
 
 
