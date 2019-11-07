@@ -30,7 +30,7 @@ Your first tasks for this session:
 
 >[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy!
 
-![connection_info](https://github.com/madelinefromtableau/TC2019/blob/master/external_service_connection.gif)
+![connection_info](https://die7lw.by.files.1drv.com/y4m-dhC3Ut_H-3x97stGouFSVP9xPLckKSJu_ewg7ixtCgLMI91zMaKPcQcwQzm5ozrrdCO7VswWcsyLpk6M8jw5gWZci4T_-ySZ1Ym9u5vRj-v2FXEDwyKvOSX091SIqJvUBGrclHr03JzRaq_zvOq4u5ty5AAt2p1y8JW4-GfvXV39tsLIvNGtYSlAB-22Ia7oiB1BdewTsuyuLdrlbIUaQ?width=1438&height=819&cropmode=none)
 
 
 
