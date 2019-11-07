@@ -969,6 +969,8 @@ The outcome should look like this:
 
 The following lines of code should help you out.
 
+### Creating a dummy variable
+
 ![dummy_variable_gif](https://github.com/madelinefromtableau/TC2019/blob/master/dummy_variable_gif.gif)
 
 ### R
