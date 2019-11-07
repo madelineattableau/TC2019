@@ -809,7 +809,7 @@ Optional Bonus: Create a dashboard with your boxplot worksheet that also has a U
 Hint: use https://open.spotify.com/track/<ATTR(Song Id)>
 
 The outcome should look like this:
-!IMAGE[result-python-sentiment.png] **image here **
+!IMAGE[result-python-sentiment.png] (https://github.com/madelinefromtableau/TC2019/blob/master/sentiment_analysis_solution.PNG)
 
 >[!Alert] ### Python
 Please make sure to calculate the sentiment score during **one** execution of the code for all songs! You are able to execute the code for each song individually, but that will take a lot of time.
@@ -844,6 +844,7 @@ return(polarity[,xxx[xxx]])
 
 ",MIN([Lyrics]), [R: Polarity Chooser])
 ```
+
 ### Python
 ```Python
 
@@ -892,6 +893,9 @@ return(polarity[,.arg2[1]])
 MIN([Lyrics]), 
 [R: Polarity Chooser])
 ```
+
+![result-r-sentiment.gif] (https://github.com/madelinefromtableau/TC2019/blob/master/r_sentiment_solution.gif)
+
 ### Python
 ```Python
 SCRIPT_REAL("
@@ -915,6 +919,9 @@ return scores
 MIN([Lyrics]), 
 [Python: Polarity Chooser])
 ```
+
+![result-python-sentiment.gif] (https://github.com/madelinefromtableau/TC2019/blob/master/python_sentiment_solution.gif)
+
 
 1. Once you have completed the Polarity variable, drag `[R: Polarity]` or `[Python: Polarity]` to rows. 
 
