@@ -31,7 +31,7 @@ Your first tasks for this session:
 >[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy!
 
 Connect To External Services (click to enlarge)
-![connection_info](https://github.com/madelinefromtableau/TC2019/blob/master/external_service_connection.gif)
+![connection_info](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/external_service_connection.gif)
 
 
 
@@ -118,7 +118,7 @@ This is how to calculate the p-value:
 ### R
 
 R Code Solution (click to enlarge)
-![t_test_R_Solution](https://github.com/madelinefromtableau/TC2019/blob/master/t_test_R_solution.gif)
+![t_test_R_Solution](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/t_test_R_solution.gif)
 
 ```R
 
@@ -139,7 +139,7 @@ ATTR([Won]))
 ### Python
 
 Pyhton Code Solution (click to enlarge)
-![t_test_R_Solution](https://github.com/madelinefromtableau/TC2019/blob/master/t_test_python_solution.gif)
+![t_test_R_Solution](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/t_test_python_solution.gif)
 
 ```Python
 
@@ -182,7 +182,7 @@ The text you see is generated in the fields `[R: p value evaluation]` and `[Pyth
 Head back to your respective dashboard **R: Result** or **Python: Result** to see the whole picture and find out if you can use declared weight to make a better informed bet on horses at Happy Valley!
 
 Final Dashboard (click to enlarge)
-![Python Solution](https://github.com/madelinefromtableau/TC2019/blob/master/python_T_Test_solution.PNG)
+![Python Solution](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/python_T_Test_solution.PNG)
 
 
 ===
@@ -813,7 +813,7 @@ Optional Bonus: Create a dashboard with your boxplot worksheet that also has a U
 Hint: use https://open.spotify.com/track/<ATTR(Song Id)>
 
 The outcome should look like this (click to enlarge):
-!IMAGE[result-python-sentiment.png] (https://github.com/madelinefromtableau/TC2019/blob/master/sentiment_analysis_solution.PNG)
+!IMAGE[result-python-sentiment.png](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/sentiment_analysis_solution.PNG)
 
 >[!Alert] ### Python
 Please make sure to calculate the sentiment score during **one** execution of the code for all songs! You are able to execute the code for each song individually, but that will take a lot of time.
@@ -884,7 +884,7 @@ This is how to analyze the song lyrics' sentiment:
 ### R
 
 R Code Solution (click to enlarge):
-![result-r-sentiment.gif](https://github.com/madelinefromtableau/TC2019/blob/master/r_sentiment_solution.gif)
+![result-r-sentiment.gif](\\\\)
 
 
 ```R
@@ -906,7 +906,7 @@ MIN([Lyrics]),
 ### Python
 
 Python Code Solution (click to enlarge):
-![result-python-sentiment](https://github.com/madelinefromtableau/TC2019/blob/master/python_sentiment_solution.gif)
+![result-python-sentiment](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/python_sentiment_solution.gif)
 
 ```Python
 SCRIPT_REAL("
@@ -931,6 +931,9 @@ MIN([Lyrics]),
 [Python: Polarity Chooser])
 ```
 
+Boxplot Building (click to enlarge):
+![boxplot_gif](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/python_sentiment_boxplot.gif)
+
 1. Once you have completed the Polarity variable, drag `[R: Polarity]` or `[Python: Polarity]` to rows. 
 
 2. Then, create the boxplot using show me. Fit the display to 'Entire View', and format the size of the marks to be larger.
@@ -939,7 +942,10 @@ MIN([Lyrics]),
 
 4. Interact with the parameter to see how the boxplot changes.
 
-5. To create the clickable link to listen to the song, add your worksheet to a dashboard. Then, add a URL action using 'Menu' and the link https://open.spotify.com/track/<ATTR(Song Id)>.
+5. Optional Challenge: To create the clickable link to listen to the song, add your worksheet to a dashboard. Then, add a URL action using 'Menu' and the link https://open.spotify.com/track/<ATTR(Song Id)>.
+
+Optional Challenge Solution (click to enlarge)
+![URL_action](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/python_sentiment_dashboard.gif)
 
 The R solution is pretty straight forward since the function itself accepts a vector. To determine the return value, the text of a parameter can be used. For Python the implementation looks a little bit different, because the function we are using does not take a list, but an atomic string value. To accomodate that, we need a `for` loop. Otherwise the Python code would need to be evaluated for each and every song, which takes longer than the `for` loop because of transfer and package load times.
 
@@ -958,7 +964,7 @@ For now, you can just listen to how Prep Builder interacts with R and Python.
 Move to the Tableau Prep Shortcut on the Desktop and open the flow titled **yelp_starter_flow.tflx**.
 If a security warning comes up, click 'Load'.
 
-![data_security_warning](https://github.com/madelinefromtableau/TC2019/blob/master/data_security_warning.PNG)
+![data_security_warning](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/data_security_warning.PNG)
 
 1. Create a dummy variable (null column) for the script to populate once it runs.
 2. Edit the .py file or .R file in the Lab Files Folder to write a function 'classify_sentiment' that takes a dataframe as its input and outputs a 'compound' sentiment score into the dummy variable column.
@@ -970,7 +976,7 @@ Optional bonus challenge: First filter to ~1K rows, then edit the function to ou
 
 
 The outcome should look like this (click to enlarge):
-![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
+![prep_solution](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/prep_solution.PNG)
 
 >[!alert] There will be more spoilers if you proceed!
 ==
@@ -981,7 +987,7 @@ The following lines of code may help you out. The xxx represents code you must f
 ### Creating a dummy variable
 
 Creating your dummy variable like this (click to enlarge):
-![dummy_variable_gif](https://github.com/madelinefromtableau/TC2019/blob/master/dummy_variable_gif.gif)
+![dummy_variable_gif](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/dummy_variable_gif.gif)
 
 ### R
 ```R
@@ -1032,7 +1038,7 @@ def classify_sentiment(prep_data_frame):
 ### R
 
 R Code Solution (click to enlarge):
-![r-sentiment-prep-solution](https://github.com/madelinefromtableau/TC2019/blob/master/r_sentiment_prep_solution.gif)
+![r-sentiment-prep-solution](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/r_sentiment_prep_solution.gif)
 
 ```R
 
@@ -1052,7 +1058,7 @@ classify_sentiment_<- function(prep_data_frame){
 ### Python
 
 Python Code Solution (click to enlarge):
-![edit_python_script](https://github.com/madelinefromtableau/TC2019/blob/master/python_prep_sentiment_solution.gif)
+![edit_python_script](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/python_prep_sentiment_solution.gif)
 
 ```Python
 #import packages
@@ -1076,7 +1082,7 @@ def classify_sentiment(prep_data_frame):
 
 
 ### Final Result
-![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
+![prep_solution](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/prep_solution.PNG)
 
 
 
