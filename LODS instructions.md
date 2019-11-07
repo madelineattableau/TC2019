@@ -30,6 +30,7 @@ Your first tasks for this session:
 
 >[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy!
 
+Connect To External Services (click to enlarge)
 ![connection_info](https://github.com/madelinenlee/TC_2019_Images/blob/master/external_service_connection.gif)
 
 
@@ -116,6 +117,7 @@ This is how to calculate the p-value:
 
 ### R
 
+R Code Solution (click to enlarge)
 ![t_test_R_Solution](https://github.com/madelinefromtableau/TC2019/blob/master/t_test_R_solution.gif)
 
 ```R
@@ -136,6 +138,7 @@ ATTR([Won]))
 
 ### Python
 
+Pyhton Code Solution (click to enlarge)
 ![t_test_R_Solution](https://github.com/madelinefromtableau/TC2019/blob/master/t_test_python_solution.gif)
 
 ```Python
@@ -178,6 +181,7 @@ The text you see is generated in the fields `[R: p value evaluation]` and `[Pyth
 
 Head back to your respective dashboard **R: Result** or **Python: Result** to see the whole picture and find out if you can use declared weight to make a better informed bet on horses at Happy Valley!
 
+Final Dashboard (click to enlarge)
 ![Python Solution](https://github.com/madelinefromtableau/TC2019/blob/master/python_T_Test_solution.PNG)
 
 
@@ -808,7 +812,7 @@ In this exercise you need to adjust the measure `[R: Polarity]` or `[Python: Pol
 Optional Bonus: Create a dashboard with your boxplot worksheet that also has a URL action to listen to the song on Spotify Web Player.
 Hint: use https://open.spotify.com/track/<ATTR(Song Id)>
 
-The outcome should look like this:
+The outcome should look like this (click to enlarge):
 !IMAGE[result-python-sentiment.png] (https://github.com/madelinefromtableau/TC2019/blob/master/sentiment_analysis_solution.PNG)
 
 >[!Alert] ### Python
@@ -893,7 +897,7 @@ return(polarity[,.arg2[1]])
 MIN([Lyrics]), 
 [R: Polarity Chooser])
 ```
-
+R Code Solution (click to enlarge):
 ![result-r-sentiment.gif](https://github.com/madelinefromtableau/TC2019/blob/master/r_sentiment_solution.gif)
 
 ### Python
@@ -919,7 +923,7 @@ return scores
 MIN([Lyrics]), 
 [Python: Polarity Chooser])
 ```
-
+Python Code Solution (click to enlarge):
 ![result-python-sentiment](https://github.com/madelinefromtableau/TC2019/blob/master/python_sentiment_solution.gif)
 
 
@@ -959,8 +963,7 @@ If a security warning comes up, click 'Load'.
 Optional bonus challenge: First filter to ~1K rows, then edit the function to output another column with positive or negative sentiment.
 
 
-The outcome should look like this:
-
+The outcome should look like this (click to enlarge):
 ![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
 
 >[!alert] There will be more spoilers if you proceed!
@@ -971,6 +974,7 @@ The following lines of code should help you out.
 
 ### Creating a dummy variable
 
+Creating your dummy variable like this (click to enlarge):
 ![dummy_variable_gif](https://github.com/madelinefromtableau/TC2019/blob/master/dummy_variable_gif.gif)
 
 ### R
@@ -1019,9 +1023,6 @@ def classify_sentiment(prep_data_frame):
 ### Proceed for the full solution.
 ===
 
-### Final Result
-![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
-
 ### R
 ```R
 
@@ -1037,6 +1038,7 @@ classify_sentiment_<- function(prep_data_frame){
   return(prep_data_frame)
 }
 ```
+R Code Solution (click to enlarge):
 ![r-sentiment-prep-solution](https://github.com/madelinefromtableau/TC2019/blob/master/r_sentiment_prep_solution.gif)
 
 ### Python
@@ -1059,8 +1061,11 @@ def classify_sentiment(prep_data_frame):
     return(prep_data_frame)
     
 ```
+Python Code Solution (click to enlarge):
 ![edit_python_script](https://github.com/madelinefromtableau/TC2019/blob/master/python_prep_sentiment_solution.gif)
 
+### Final Result
+![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
 
 
 
