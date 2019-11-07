@@ -7,10 +7,50 @@ This sidebar contains some helpful tips and code snippets for you. It will also 
 
 Have fun, geek out, and don't hesitate to ask us for help when needed!
 
-
-
 // Madeline & Josh
 
+===
+
+## Startup RServe or TabPy
+
+*  Double-click the **TC 2019 Lab Files** folder on the desktop and browse to the **19HI-120-020** folder.
+
+Full path: `C:\Users\LabUser\Desktop\TC 2019 Lab Files\19HI-120-020`
+
+### R Users
+
+* [ ] Double-click the **start-rserve.bat** file
+
+Success means you see this in the console:
+```
+C:\Users\LabUser\Desktop\TC 2019 Lab Files\19HI-120-020>"C:\Program Files\R\R-3.6.1\bin\Rscript.exe" "C:\Users\LabUser\Desktop\TC 2019 Lab Files\19HI-120-020\code-start-rserve.r"
+Starting Rserve...
+ "C:\Users\LabUser\DOCUME~1\R\WIN-LI~1\3.6\Rserve\libs\x64\Rserve.exe"
+
+C:\Users\LabUser\Desktop\TC 2019 Lab Files\19HI-120-020>cmd /k
+C:\Users\LabUser\Desktop\TC 2019 Lab Files\19HI-120-020>Rserve: Ok, ready to answer queries.
+```
+
+### Python Users
+
+* [ ] Double-click the **start-tabpy.bat** file
+
+Success means you see this in the console:
+```
+C:\Users\LabUser\Desktop\TC 2019 Lab Files\19HI-120-020>call C:\users\LabUser\Anaconda3\Scripts\activate.bat TabPy070
+
+(TabPy070) C:\Users\LabUser\Desktop\TC 2019 Lab Files\19HI-120-020>call cd c:\users\LabUser\TabPy-0.7\
+
+(TabPy070) c:\Users\LabUser\TabPy-0.7>call c:\users\LabUser\TabPy-0.7\startup
+Checking for presence of Python in the system path variable.
+Python 3.7.4
+Installing any missing dependencies...
+    success
+    Check "c:\Users\LabUser\TabPy-0.7"\tabpy-server\install.log for details.
+Parsing parameters...
+Starting TabPy server...
+
+```
 ===
 
 ## t-Test
