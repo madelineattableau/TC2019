@@ -31,7 +31,7 @@ Your first tasks for this session:
 >[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy!
 
 Connect To External Services (click to enlarge)
-![connection_info](https://github.com/madelinenlee/TC_2019_Images/blob/master/external_service_connection.gif)
+![connection_info](https://github.com/madelinefromtableau/TC2019/blob/master/external_service_connection.gif)
 
 
 
