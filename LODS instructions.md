@@ -1019,6 +1019,9 @@ def classify_sentiment(prep_data_frame):
 ### Proceed for the full solution.
 ===
 
+### Final Result
+![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
+
 ### R
 ```R
 
@@ -1058,7 +1061,6 @@ def classify_sentiment(prep_data_frame):
 ```
 ![edit_python_script](https://github.com/madelinefromtableau/TC2019/blob/master/python_prep_sentiment_solution.gif)
 
-![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
 
 
 
