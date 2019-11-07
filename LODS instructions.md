@@ -949,6 +949,8 @@ The R solution is pretty straight forward since the function itself accepts a ve
 
 In this exercise, we will move to Tableau Prep Builder to conduct an exercise using our new external services feature, recently released in 2019.3! We will conduct sentiment analysis on yelp reviews of buffets in Vegas to determine each review's compound sentiment score.
 
+![buffet-image](https://cdn.citynomads.com/wp-content/uploads/2019/09/09170827/Coffee-Lounge-Dessert-Buffet-With-Mao-Shan-Wang-and-D24-Durian-Delights.jpg)
+
 For now, you can just listen to how Prep Builder interacts with R and Python.
 
 ===
