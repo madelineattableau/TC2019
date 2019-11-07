@@ -830,7 +830,7 @@ The following pages contains help on various levels. If you need a little jumpst
 
 ===
 ### Starter Solution
-The following code lines could help you to out.
+The following lines of code may help you out. The xxx represents code you must fill in yourself!
 
 ### R
 ```R
@@ -882,6 +882,11 @@ return scores
 This is how to analyze the song lyrics' sentiment:
 
 ### R
+
+R Code Solution (click to enlarge):
+![result-r-sentiment.gif](https://github.com/madelinefromtableau/TC2019/blob/master/r_sentiment_solution.gif)
+
+
 ```R
 SCRIPT_REAL("
 # load in required packages
@@ -897,10 +902,12 @@ return(polarity[,.arg2[1]])
 MIN([Lyrics]), 
 [R: Polarity Chooser])
 ```
-R Code Solution (click to enlarge):
-![result-r-sentiment.gif](https://github.com/madelinefromtableau/TC2019/blob/master/r_sentiment_solution.gif)
 
 ### Python
+
+Python Code Solution (click to enlarge):
+![result-python-sentiment](https://github.com/madelinefromtableau/TC2019/blob/master/python_sentiment_solution.gif)
+
 ```Python
 SCRIPT_REAL("
 # load in packages
@@ -923,9 +930,6 @@ return scores
 MIN([Lyrics]), 
 [Python: Polarity Chooser])
 ```
-Python Code Solution (click to enlarge):
-![result-python-sentiment](https://github.com/madelinefromtableau/TC2019/blob/master/python_sentiment_solution.gif)
-
 
 1. Once you have completed the Polarity variable, drag `[R: Polarity]` or `[Python: Polarity]` to rows. 
 
@@ -970,7 +974,7 @@ The outcome should look like this (click to enlarge):
 ==
 
 
-The following lines of code should help you out.
+The following lines of code may help you out. The xxx represents code you must fill in yourself!
 
 ### Creating a dummy variable
 
@@ -1024,6 +1028,10 @@ def classify_sentiment(prep_data_frame):
 ===
 
 ### R
+
+R Code Solution (click to enlarge):
+![r-sentiment-prep-solution](https://github.com/madelinefromtableau/TC2019/blob/master/r_sentiment_prep_solution.gif)
+
 ```R
 
 library(SentimentAnalysis)
@@ -1038,10 +1046,12 @@ classify_sentiment_<- function(prep_data_frame){
   return(prep_data_frame)
 }
 ```
-R Code Solution (click to enlarge):
-![r-sentiment-prep-solution](https://github.com/madelinefromtableau/TC2019/blob/master/r_sentiment_prep_solution.gif)
 
 ### Python
+
+Python Code Solution (click to enlarge):
+![edit_python_script](https://github.com/madelinefromtableau/TC2019/blob/master/python_prep_sentiment_solution.gif)
+
 ```Python
 #import packages
 import pandas as pd
@@ -1061,8 +1071,7 @@ def classify_sentiment(prep_data_frame):
     return(prep_data_frame)
     
 ```
-Python Code Solution (click to enlarge):
-![edit_python_script](https://github.com/madelinefromtableau/TC2019/blob/master/python_prep_sentiment_solution.gif)
+
 
 ### Final Result
 ![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
