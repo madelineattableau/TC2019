@@ -894,7 +894,7 @@ MIN([Lyrics]),
 [R: Polarity Chooser])
 ```
 
-![result-r-sentiment.gif] (https://github.com/madelinefromtableau/TC2019/blob/master/r_sentiment_solution.gif)
+![result-r-sentiment.gif](https://github.com/madelinefromtableau/TC2019/blob/master/r_sentiment_solution.gif)
 
 ### Python
 ```Python
@@ -920,7 +920,7 @@ MIN([Lyrics]),
 [Python: Polarity Chooser])
 ```
 
-![result-python-sentiment.gif] (https://github.com/madelinefromtableau/TC2019/blob/master/python_sentiment_solution.gif)
+![result-python-sentiment](https://github.com/madelinefromtableau/TC2019/blob/master/python_sentiment_solution.gif)
 
 
 1. Once you have completed the Polarity variable, drag `[R: Polarity]` or `[Python: Polarity]` to rows. 
@@ -1052,7 +1052,7 @@ def classify_sentiment(prep_data_frame):
     
 ```
 
-![prep_solution](https://drive.google.com/file/d/1InBgAydlQISvdmwrI0CxgSEGyxLsaeN5/view?usp=sharing)
+![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
 
 
 
