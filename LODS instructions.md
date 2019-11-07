@@ -990,7 +990,7 @@ classify_sentiment <- function(prep_data_frame) {
   compound <- xxx[, 'SentimentQDAP'];
   #assign score to the sentiment column in the dataframe
   prep_data_frame$sentiment <- xxx
-  return the dataframe 
+  #return the dataframe 
   return(prep_data_frame)
 }
 ```
@@ -1037,7 +1037,7 @@ classify_sentiment_<- function(prep_data_frame){
   return(prep_data_frame)
 }
 ```
-
+![r-sentiment-prep-solution](https://github.com/madelinefromtableau/TC2019/blob/master/r_sentiment_prep_solution.gif)
 
 ### Python
 ```Python
