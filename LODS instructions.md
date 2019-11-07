@@ -969,6 +969,8 @@ The outcome should look like this:
 
 The following lines of code should help you out.
 
+![dummy_variable_gif](https://github.com/madelinefromtableau/TC2019/blob/master/dummy_variable_gif.gif)
+
 ### R
 ```R
 library(SentimentAnalysis)
@@ -1031,6 +1033,7 @@ classify_sentiment_<- function(prep_data_frame){
 }
 ```
 
+
 ### Python
 ```Python
 #import packages
@@ -1051,6 +1054,7 @@ def classify_sentiment(prep_data_frame):
     return(prep_data_frame)
     
 ```
+![edit_python_script](https://github.com/madelinefromtableau/TC2019/blob/master/python_prep_sentiment_solution.gif)
 
 ![prep_solution](https://github.com/madelinefromtableau/TC2019/blob/master/prep_solution.PNG)
 
