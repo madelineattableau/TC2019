@@ -251,7 +251,7 @@ Here we will cover:
 
 >[!note]#### Exercise: Partitioning
 
-1. Open the **Partitioning** worksheet
+1. Open the **R: Partitioning** or **Python: Partitioning** worksheet
 
 2. Drag **index_x_10** to the columns shelf
 
