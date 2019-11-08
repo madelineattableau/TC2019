@@ -178,7 +178,7 @@ ATTR([Won]))
 
 ### Python
 
-Pyhton Code Solution (click to enlarge)
+Python Code Solution (click to enlarge)
 ![t_test_R_Solution](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/t_test_python_solution.gif)
 
 ```Python
