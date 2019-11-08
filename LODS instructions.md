@@ -66,7 +66,7 @@ In this part you will learn:
 Your first tasks for this session:
 
 1. Please start by opening this file: `R ... You Ready for Python - Starter.twbx`
-2. If a pop-up window appears with some confusing looking code, press the enter key.
+2. If a pop-up window appears with some confusing looking code, press the **enter** key.
 
 >[!alert] It is time to choose your profession! Please follow the outline below to connect to a RServe or TabPy!
 
@@ -1026,7 +1026,7 @@ The following lines of code may help you out. The xxx represents code you must f
 
 ### Creating a dummy variable
 
-Creating your dummy variable like this (click to enlarge):
+Create your dummy variable like this (click to enlarge):
 ![dummy_variable_gif](https://raw.githubusercontent.com/madelinefromtableau/TC2019/master/dummy_variable_gif.gif)
 
 ### R
