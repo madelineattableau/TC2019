@@ -443,6 +443,7 @@ INDEX())
 
 ===
 
+
 ## Network Graphs
 
 ### Introduction
@@ -466,7 +467,9 @@ The data was taken from an internal reference data source at Tableau, but the da
 
 ### Example: Airport Network Originating from LAS
 
-This is how to create the network graph:
+For your reference, this is how to create the network graph _(no action required)_:
+
+The scripts below can be found in the **Python: Graph** and **R: Graph** fields
 
 ### R
 ```R
@@ -572,7 +575,7 @@ As a next step we need to decompose this string into the three bits of informati
 ### Decompose the String into Tokens
 >>[!knowledge]Tokenizing strings is simply the process of splitting a string up into sub-strings that contain values which we want to use.
 
-This is how to decompose and extract **X**, **Y**, and the third measure:
+For your reference, this is how to decompose and extract **X**, **Y**, and the third measure:
 ```X
 FLOAT(LEFT([R: Graph], FIND([R: Graph], '~') - 1))
 ```
@@ -658,7 +661,12 @@ We started with the partitioning setup not quite correct, and only a singular ax
 1. Press F9 or Update the worksheet with the icon in the menu bar. ![https://help.tableau.com/v2019.3/pro/desktop/en-us/Img/runquery.png](https://help.tableau.com/v2019.3/pro/desktop/en-us/Img/runquery.png)
 
 1. Set the secondary **Y** field you just added as a dual axis.  
-1. Within the Marks card area, adjust the first **Y** measure's mark card.  Change the drop-down from circle to Line.
+1. Configure the marks card area as follows
+
+![marks-settings](https://5n52nw.ch.files.1drv.com/y4m_dHwUJ8PlUKN5QxcvmP4T-7SjOqavSyRG2coljeNXEx7SNbtJILhOJtRqj1J6HFU7zw62QGcqMITSvfdWfrRJZsM2Y2KYwH1etMRCt9gB0YdtxSD6F0UOtQh7p3a2sgPrZPkuSS5QPAs-x9t7bv0ILv1KqlzLL1-nScrNw1EyzeHXpIw2AFRZrfH9milmLyeN4FdeDXl_OvvCMFw_NzJSg/03r-15-Marks-Card-Settings.png?psid=1)
+
+Namely:
+6. Within the Marks card area, adjust the _first_ **Y** measure's mark card.  Change the drop-down from **circle** to **Line**.
 1. Change the **Path Order** blue pill on Color to continuous.
 1. Duplicate the _(now green)_ **Path Order** pill that we just worked on and drop it onto the Path card.
 1. Press F9 or Update the worksheet with the icon in the menu bar. ![https://help.tableau.com/v2019.3/pro/desktop/en-us/Img/runquery.png](https://help.tableau.com/v2019.3/pro/desktop/en-us/Img/runquery.png)
@@ -709,13 +717,15 @@ The following pages contains help on various levels. If you need a little jumpst
 ===
 
 >[!hint] 1. Note how the functions to generate graph layouts are being called, especially in the R code. Think of a good way of injecting whatever the parameters return into those function calls.
-2. Creating the dimension shouldn't be the issue, but keep an eye out to what happens when you add it to the viz. HOw could you prevent that from happening?
+2. Creating the dimension shouldn't be the issue, but keep an eye out to what happens when you add it to the viz. How could you prevent that from happening?
 
 >[!alert] If you're done, stuck, or want to give up, the full solutions in R and Python are shown on the next page.
 
 ===
 
 ### Solution: Buyer and Seller Relationships
+
+**R: Graph** and **Python: Graph** fields, respectively:
 
 ### R
 ```R
