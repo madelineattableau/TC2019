@@ -382,10 +382,12 @@ INDEX())
 >[!hint] With the current visualization, you might have to edit the partition for Specific Dimensions
 
   
-
 >[!Knowledge] Reading Table Calculations in an English Sentence:
+>
+> For Each _[unchecked dimension]_ Compute _[script]_ By _[checked dimensions]_
 
-For Each _[unchecked dimension]_ Compute _[script]_ By _[checked dimensions]_
+![table-calc-sentence](https://io9wqa.dm2302.livefilestore.com/y4m8knWIP4S34imWnSUYX9js1it5-k3XQLmzehjUT2MqmRd5PY_ZWQ6ypi6A9mLsgiOI-hIh8HgnIxxEKgBdIR_rEQ1zSPzzYOI8JvLsf4N9FBPLOU8g2Ry_OjjpWyydfJY4DJseVW3jBGlS-jfFBUeovAL8GcIO8VPWxZSww1iQ98gBS1PkJS4G0-XICkV2fFy8OVcy7Wvr4mwDqgFIcKXsA?width=1834&height=970&cropmode=none)
+-- http://www.vizwiz.com/2017/02/table-calcs.html  
 
   
 
